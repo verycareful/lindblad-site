@@ -109,7 +109,7 @@ export function Footer() {
         </div>
         <hr className="rule mt-48" />
         <div className="flex justify-between mt-24" style={{ flexWrap: 'wrap', gap: 16 }}>
-          <span className="mono text-faint" style={{ fontSize: 12 }}>BUILD R.1.0.0 · 94 TESTS · 16 SUITES · ALL PASSING</span>
+          <span className="mono text-faint" style={{ fontSize: 12 }}>BUILD R.1.0.1 · 94 TESTS · 16 SUITES · ALL PASSING</span>
           <span className="mono text-faint" style={{ fontSize: 12 }}>C++23 · OpenMP · Eigen · NLopt</span>
         </div>
       </div>

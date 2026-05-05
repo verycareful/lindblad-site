@@ -2,6 +2,14 @@
 
 All notable changes to this repository will be documented in this file.
 
+
+## [R.1.0.1] - 2026-05-05
+
+### Changed
+- Removed legacy HTML entry points and JSX component files (now fully migrated to TypeScript + Vite).
+- Cleaned up old website layout folder and styles directory (consolidated into Vite build).
+
+
 ## [R.1.0.0] - 2026-05-05
 
 ### Added

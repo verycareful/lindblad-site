@@ -1,7 +1,7 @@
 {
   "name": "lindblad-website",
   "private": true,
-  "version": "R.1.0.0",
+  "version": "R.1.0.1",
   "type": "module",
   "scripts": {
     "dev": "vite",

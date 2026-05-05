@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.0.0 · 94/94 TESTS PASSING</span>
+          <span className="eyebrow">RELEASE R.1.0.1 · 94/94 TESTS PASSING</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -834,7 +834,7 @@ export function BenchmarksPage() {
 const FAQ_ITEMS = [
   { q: 'Can I evaluate Q++ before committing to a commercial license?', a: 'Yes. Evaluation licenses run 30–90 days and grant access for internal benchmarking and integration testing. Contact us with your evaluation scope.' },
   { q: 'Is academic access automatic?', a: 'Yes. The source is published on GitHub at github.com/verycareful/lindblad and is available via CMake FetchContent or release tarballs. Academic and non-commercial use is free under the SLA — no request required.' },
-  { q: 'Can I publish benchmarks comparing Q++ to other simulators?', a: 'Yes, under the academic license. We ask that you cite the version (R.1.0.0) and report hardware specs alongside any performance numbers.' },
+  { q: 'Can I publish benchmarks comparing Q++ to other simulators?', a: 'Yes, under the academic license. We ask that you cite the version (R.1.0.1) and report hardware specs alongside any performance numbers.' },
   { q: 'Do you accept community contributions?', a: 'Yes — contributions are welcome from both commercial and non-commercial users, and every PR will be considered. Q++ is maintained by a single author, so reviews may not be quick unless the contribution fixes a major bug. Note that §6.3 of the SLA assigns contribution copyright to the author irrevocably — review before submitting.' },
   { q: 'Can I request new features?', a: 'Yes, requests are considered. Feature requests from commercial consumers are prioritized; community feature requests are evaluated as time permits.' },
 ] as const;
@@ -1122,7 +1122,7 @@ function CitationSection() {
 <span class="ty">authors</span>:
   - <span class="ty">family-names</span>: <span class="st">"Suresh"</span>
     <span class="ty">given-names</span>:  <span class="st">"Sricharan"</span>
-<span class="ty">version</span>:      <span class="st">"R.1.0.0"</span>
+<span class="ty">version</span>:      <span class="st">"R.1.0.1"</span>
 <span class="ty">date-released</span>: <span class="st">"2026"</span>
 <span class="ty">license</span>:      <span class="st">"Lindblad-SLA-1.0"</span>`}
         </div>
