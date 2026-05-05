@@ -1,6 +1,6 @@
-# Q++ Website
+# Lindblad Website
 
-A multi-page React and TypeScript rebuild of the Lindblad / Q++ marketing site.
+A multi-page React and TypeScript rebuild of the Lindblad marketing site.
 
 ## Development
 
