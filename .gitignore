@@ -10,5 +10,6 @@ pnpm-debug.log*
 .env
 .env.*
 changes_version.md
+.claude/
 Website layout/
 lindblad-site-1fc479b24be71d689af0d17041fdf25124883c69.zip

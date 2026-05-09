@@ -3,6 +3,30 @@
 All notable changes to this repository will be documented in this file.
 
 
+## [R.1.3.1] - 2026-05-09
+
+### Added
+- HTML entry points and `styles/tokens.css` design token system from Claude designer output.
+- `LicenseSplit` section (§05/06) and `CTA` section (§06/06) on home page, ported from original HTML source.
+- Theme persistence: inline script in every HTML `<head>` applies saved theme before CSS renders, eliminating flash on page navigation.
+- `white-space: nowrap` on `.tag` to prevent long labels (e.g. SEARCH & ESTIMATION) from wrapping.
+
+### Changed
+- Updated all version references and content strings to upstream Lindblad R.1.3.1 (223 tests · 35 suites).
+- QuickStart section replaced with FetchContent CMake example + clone/build step cards, matching original HTML design.
+- Differentiators cards updated to original `FEATURE / 01` layout with blue code label and rule separator.
+- Contact form: removed redundant academic inquiry type (access is automatic).
+- Contact layout: explicit two-column grid so info cards always appear on the right.
+- Algorithms page hero accent colour changed from blue to orange for consistency.
+- All code blocks converted to `dangerouslySetInnerHTML` so syntax-highlight spans render as HTML.
+- `vite.config.ts` updated to multi-page build config with `base: './'`.
+
+### Fixed
+- Theme toggle overwrote localStorage with `"dark"` on every page load before reading the saved value; initialiser now reads localStorage directly.
+- Benchmarks page replaced with "in progress" placeholder (full content preserved as `BenchmarksPageFull`).
+- FAQ accordion no longer pre-expands any item.
+
+
 ## [R.1.2.2] - 2026-05-09
 
 ### Changed

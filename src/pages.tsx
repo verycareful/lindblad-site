@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Counter, SectionHeader, Stat, BlochSphere } from './components/atoms';
-import { CircuitDiagram, COMPACT_CIRCUIT, HERO_CIRCUIT } from './components/circuit';
+import { Counter, SectionHeader, Stat } from './components/atoms';
+import { CircuitDiagram, HERO_CIRCUIT } from './components/circuit';
 import { Footer, Nav } from './components/chrome';
 import type { PageName } from './types';
 
@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.2.2 · 94/94 TESTS PASSING</span>
+          <span className="eyebrow">RELEASE R.1.3.1 · 223 TESTS · 35 SUITES</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -61,7 +61,7 @@ function HomeHero() {
           <Stat label="QUBITS BENCHED" value={<Counter to={20} />} sub="MA-QAOA layerwise · 1380 params" />
           <Stat label="SIMULATOR BACKENDS" value={<Counter to={4} />} sub="Statevector · DM · Clifford · MPS" accent="var(--orange)" />
           <Stat label="ALGORITHMS" value={<Counter to={9} />} sub="VQE · QAOA · MA-QAOA · Grover · QPE · BV · DJ · Simon · Ising" accent="var(--blue)" />
-          <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="94 unit tests · 16 test suites" />
+          <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="223 unit tests · 35 test suites" />
         </div>
       </div>
     </section>
@@ -182,8 +182,8 @@ function CodeSample() {
           desc="A circuit, a Hamiltonian, and an optimizer. The transpiler caches intermediate results across calls. The estimator parallelizes the parameter-shift rule."
         />
         <div className="grid" style={{ gridTemplateColumns: 'minmax(0, 1.2fr) minmax(320px, 1fr)', gap: 24 }}>
-          <div className="code-block">
-{`<span class="cm">// MA-QAOA on a microgrid commitment problem</span>
+          <div className="code-block" dangerouslySetInnerHTML={{ __html:
+`<span class="cm">// MA-QAOA on a microgrid commitment problem</span>
 <span class="kw">#include</span> <span class="st">&lt;lindblad/algorithms.hpp&gt;</span>
 <span class="kw">#include</span> <span class="st">&lt;lindblad/ising.hpp&gt;</span>
 
@@ -201,8 +201,8 @@ opt.<span class="nm">seed</span>            = <span class="nu">42</span>;
 
 std::cout &lt;&lt; <span class="st">"E ="</span> &lt;&lt; result.<span class="nm">final_cost</span>
           &lt;&lt; <span class="st">"  bits ="</span> &lt;&lt; result.<span class="nm">best_bitstring</span>;
-<span class="cm">// E = -260.639  bits = 01101100000110011011</span>`}
-          </div>
+<span class="cm">// E = -260.639  bits = 01101100000110011011</span>`
+          }} />
           <div className="flex-col gap-16">
             <div className="card corners">
               <div className="label">PARAMETER-SHIFT GRADIENTS</div>
@@ -242,16 +242,17 @@ function Differentiators() {
           title="Beyond the standard library."
           desc="Lindblad isn't a port of an existing simulator. It implements research-grade techniques as first-class APIs - inits, symmetry reductions, and convergence telemetry that aren't in the big-name frameworks."
         />
-        <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 16 }}>
+        <div className="grid" style={{ gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
           {FEATURE_CARDS.map((feature) => (
             <div key={feature.n} className="card" style={{ padding: 28 }}>
               <div className="flex justify-between items-baseline">
-                <span className="mono text-orange" style={{ fontSize: 22 }}>{feature.n}</span>
-                <span className="tag">FEATURE</span>
+                <span className="mono text-orange" style={{ fontSize: 12, letterSpacing: '0.1em' }}>FEATURE / {feature.n}</span>
+                <span className="mono text-faint" style={{ fontSize: 11 }}>↗</span>
               </div>
-              <h3 className="h3 mt-16">{feature.title}</h3>
-              <p className="text-dim mt-12" style={{ fontSize: 14, lineHeight: 1.6 }}>{feature.desc}</p>
-              <div className="label mt-24">{feature.code}</div>
+              <h3 className="h3 mt-24">{feature.title}</h3>
+              <p className="text-dim mt-16" style={{ fontSize: 14, lineHeight: 1.55 }}>{feature.desc}</p>
+              <hr className="rule mt-24" />
+              <div className="mono mt-16" style={{ fontSize: 12, color: 'var(--blue)' }}>{feature.code}</div>
             </div>
           ))}
         </div>
@@ -265,31 +266,138 @@ function LaunchSection() {
     <section id="quickstart">
       <div className="container">
         <SectionHeader
+          num="04 / 06"
           kicker="QUICK START"
-          title="Run it locally as TypeScript."
-          desc="This rebuild uses Vite + React + TypeScript instead of CDN React and inline Babel."
+          title="From clone to circuit in 90 seconds."
+          desc="CMake 3.20+, a C++23 compiler, and OpenMP. Eigen, NLopt, GoogleTest, and Google Benchmark are fetched automatically."
         />
-        <div className="grid" style={{ gridTemplateColumns: 'minmax(0, 1fr) minmax(320px, 420px)', gap: 16 }}>
-          <div className="code-block">
-{`<span class="cm"># Install and run the TypeScript build</span>
-<span class="kw">$</span> npm install
-<span class="kw">$</span> npm run dev
-
-<span class="cm"># Produce the static build</span>
-<span class="kw">$</span> npm run build`}
-          </div>
-          <div className="card corners" style={{ padding: 28 }}>
-            <div className="label">WHAT CHANGED</div>
-            <ul className="text-dim mt-16" style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12, fontSize: 14 }}>
-              <li>→ No runtime JSX transform in the browser.</li>
-              <li>→ Shared components live in typed modules.</li>
-              <li>→ All pages compile from the same source tree.</li>
-              <li>→ The multi-page structure is preserved.</li>
-            </ul>
-            <div className="flex gap-12 mt-24" style={{ flexWrap: 'wrap' }}>
-              <a href="algorithms.html" className="btn">VIEW ALGORITHMS</a>
-              <a href="benchmarks.html" className="btn btn-primary">SEE BENCHMARKS</a>
+        <div className="grid" style={{ gridTemplateColumns: '1.1fr 1fr', gap: 16 }}>
+          <div className="card" style={{ padding: 0 }}>
+            <div className="flex justify-between items-center" style={{ padding: '12px 18px', borderBottom: '1px solid var(--rule)' }}>
+              <span className="tag tag-orange">CMakeLists.txt · FetchContent</span>
+              <span className="mono text-faint" style={{ fontSize: 11 }}>RECOMMENDED</span>
             </div>
+            <div className="code-block" style={{ border: 0, padding: '20px 22px' }} dangerouslySetInnerHTML={{ __html:
+`<span class="fn">FetchContent_Declare</span>(
+    lindblad
+    <span class="cm"># Local source directory if downloaded from releases:</span>
+    <span class="ty">SOURCE_DIR</span>     <span class="st">\${CMAKE_SOURCE_DIR}/external/lindblad</span>
+
+    <span class="cm"># Or fetch from GitHub:</span>
+    <span class="cm"># GIT_REPOSITORY git@github.com:verycareful/lindblad.git</span>
+    <span class="cm"># GIT_TAG        R.1.3.1</span>
+)
+<span class="fn">FetchContent_MakeAvailable</span>(lindblad)
+
+<span class="fn">target_link_libraries</span>(my_app <span class="ty">PRIVATE</span> lindblad_core)`
+            }} />
+            <div className="flex justify-between items-center" style={{ padding: '10px 18px', borderTop: '1px solid var(--rule)', background: 'var(--surface-2)' }}>
+              <span className="mono text-faint" style={{ fontSize: 11 }}>LATEST RELEASE · R.1.3.1</span>
+              <a href="https://github.com/verycareful/lindblad/releases" target="_blank" rel="noopener" className="mono" style={{ fontSize: 11, color: 'var(--orange)' }}>↗ ALL RELEASES</a>
+            </div>
+          </div>
+
+          <div className="flex-col gap-16">
+            <div className="card">
+              <div className="flex gap-12 items-center">
+                <span className="mono text-orange">01.</span>
+                <div className="label">CLONE &amp; CONFIGURE</div>
+              </div>
+              <div className="code-block mt-16" style={{ background: 'var(--bg)', padding: 14, fontSize: 12 }} dangerouslySetInnerHTML={{ __html:
+`$ git clone https://github.com/verycareful/lindblad.git
+$ cd lindblad
+$ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \\
+    -DCMAKE_CXX_COMPILER=clang++ \\
+    -DCMAKE_CXX_FLAGS="-O3 -march=native"`
+              }} />
+            </div>
+            <div className="card">
+              <div className="flex gap-12 items-center">
+                <span className="mono text-orange">02.</span>
+                <div className="label">BUILD &amp; VERIFY</div>
+              </div>
+              <div className="code-block mt-16" style={{ background: 'var(--bg)', padding: 14, fontSize: 12 }} dangerouslySetInnerHTML={{ __html:
+`$ cmake --build build --config Release -j$(nproc)
+   [214/214] Linking liblindblad_core.a
+
+$ ctest --test-dir build --output-on-failure
+   100% tests passed · 223/223 across 35 suites`
+              }} />
+            </div>
+          </div>
+        </div>
+
+        <div className="flex gap-12 mt-32" style={{ flexWrap: 'wrap' }}>
+          <a href="https://github.com/verycareful/lindblad" target="_blank" rel="noopener" className="btn btn-primary">↗ github.com/verycareful/lindblad</a>
+          <a href="https://github.com/verycareful/lindblad/releases/tag/R.1.3.1" target="_blank" rel="noopener" className="btn">↗ R.1.3.1 RELEASE NOTES</a>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function LicenseSplit() {
+  return (
+    <section>
+      <div className="container">
+        <SectionHeader
+          num="05 / 06"
+          kicker="LICENSING"
+          title="Source-available. Two paths."
+          desc="The Lindblad Software License v1.0 is free for non-commercial and academic use. Commercial use of any kind requires a separate written license."
+        />
+        <div className="grid" style={{ gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+          <div className="card" style={{ padding: 36 }}>
+            <div className="flex justify-between items-baseline">
+              <div className="label">PATH A · ACADEMIC</div>
+              <span className="tag tag-blue">FREE</span>
+            </div>
+            <h3 className="h2 mt-16">Research &amp; teaching</h3>
+            <ul className="text-dim mt-24" style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12, fontSize: 14 }}>
+              <li>✓ Free for non-commercial use</li>
+              <li>✓ Use in academic publications with citation</li>
+              <li>✓ Source available on request</li>
+              <li>✓ Cite via <span className="mono text-blue">CITATION.cff</span></li>
+            </ul>
+            <hr className="rule mt-32" />
+            <a href="license.html" className="btn" style={{ marginTop: 24, display: 'inline-flex' }}>READ FULL LICENSE →</a>
+          </div>
+          <div className="card corners" style={{ padding: 36, background: 'linear-gradient(180deg, var(--orange-faint), transparent 60%)' }}>
+            <div className="flex justify-between items-baseline">
+              <div className="label" style={{ color: 'var(--orange)' }}>PATH B · COMMERCIAL</div>
+              <span className="tag tag-orange">CONTACT</span>
+            </div>
+            <h3 className="h2 mt-16">Production &amp; products</h3>
+            <ul className="text-dim mt-24" style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12, fontSize: 14 }}>
+              <li>✓ Negotiated written agreement</li>
+              <li>✓ Embed in commercial products</li>
+              <li>✓ Feature-request prioritization</li>
+              <li>✓ Per-seat or per-deployment terms</li>
+            </ul>
+            <hr className="rule mt-32" />
+            <a href="contact.html" className="btn btn-primary" style={{ marginTop: 24, display: 'inline-flex' }}>→ REQUEST LICENSE</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function CTA() {
+  return (
+    <section style={{ paddingBottom: 120 }}>
+      <div className="container">
+        <div className="card corners" style={{ padding: '72px 48px', textAlign: 'center', background: 'var(--surface)' }}>
+          <div className="eyebrow">§ 06 / 06 · GET STARTED</div>
+          <h2 className="h-display mt-16" style={{ fontSize: 'clamp(40px, 6vw, 88px)' }}>
+            Built for <span style={{ color: 'var(--orange)' }}>throughput.</span>
+          </h2>
+          <p className="lead mt-24" style={{ margin: '24px auto 0', maxWidth: 560 }}>
+            If you're benchmarking variational algorithms, modeling realistic noise, or running orbit-symmetric QAOA — Lindblad is built for the work you're doing.
+          </p>
+          <div className="flex gap-12 mt-48" style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
+            <a href="benchmarks.html" className="btn btn-primary">SEE BENCHMARKS →</a>
+            <a href="mailto:qpp.support@proton.me" className="btn btn-ghost">qpp.support@proton.me</a>
           </div>
         </div>
       </div>
@@ -305,6 +413,8 @@ export function HomePage() {
       <CodeSample />
       <Differentiators />
       <LaunchSection />
+      <LicenseSplit />
+      <CTA />
     </PageFrame>
   );
 }
@@ -527,7 +637,7 @@ export function AlgorithmsPage() {
           <h1 className="h-display mt-24" style={{ fontSize: 'clamp(48px, 6vw, 96px)' }}>
             Eight families.
             <br />
-            <span style={{ color: 'var(--blue)' }}>One coherent stack.</span>
+            <span style={{ color: 'var(--orange)' }}>One coherent stack.</span>
           </h1>
           <p className="lead mt-32">
             Every algorithm is implemented against the same <span className="mono text-orange">Estimator</span> / <span className="mono text-orange">Sampler</span> primitive surface, with the same transpiler cache, gradient infrastructure, and noise model. Drop in, swap simulator, repeat.
@@ -763,11 +873,11 @@ function ConfigSection() {
             </div>
           </div>
         </div>
-        <div className="code-block mt-24">
-{`<span class="cm"># Reproduce</span>
+        <div className="code-block mt-24" dangerouslySetInnerHTML={{ __html:
+`<span class="cm"># Reproduce</span>
 <span class="kw">$</span> ctest --test-dir build-clang -R MicrogridQAOA20.MAQAOA_Layerwise --output-on-failure
-<span class="cm"># Output: outputs/maqaoa_20q_results.txt</span>`}
-        </div>
+<span class="cm"># Output: outputs/maqaoa_20q_results.txt</span>`
+        }} />
       </div>
     </section>
   );
@@ -806,7 +916,8 @@ function Methodology() {
   );
 }
 
-export function BenchmarksPage() {
+// BenchmarksPageFull is preserved below — uncomment and re-export when benchmarks are ready.
+function BenchmarksPageFull() {
   return (
     <PageFrame active="benchmarks">
       <section style={{ paddingTop: 64, paddingBottom: 32, borderTop: 0 }}>
@@ -831,10 +942,30 @@ export function BenchmarksPage() {
   );
 }
 
+export function BenchmarksPage() {
+  return (
+    <PageFrame active="benchmarks">
+      <section style={{ paddingTop: 64, paddingBottom: 48, borderTop: 0 }}>
+        <div className="container">
+          <div className="eyebrow">§ MEASURED PERFORMANCE</div>
+          <h1 className="h-display mt-24" style={{ fontSize: 'clamp(48px, 6vw, 96px)' }}>
+            Benchmarks
+            <br />
+            <span style={{ color: 'var(--orange)' }}>in progress.</span>
+          </h1>
+          <p className="lead mt-32">
+            Performance data is being collected and will be published here once complete.
+          </p>
+        </div>
+      </section>
+    </PageFrame>
+  );
+}
+
 const FAQ_ITEMS = [
   { q: 'Can I evaluate LINDBLAD before committing to a commercial license?', a: 'Yes. Evaluation licenses run 30–90 days and grant access for internal benchmarking and integration testing. Contact us with your evaluation scope.' },
   { q: 'Is academic access automatic?', a: 'Yes. The source is published on GitHub at github.com/verycareful/lindblad and is available via CMake FetchContent or release tarballs. Academic and non-commercial use is free under the SLA — no request required.' },
-  { q: 'Can I publish benchmarks comparing LINDBLAD to other simulators?', a: 'Yes, under the academic license. We ask that you cite the version (R.1.2.2) and report hardware specs alongside any performance numbers.' },
+  { q: 'Can I publish benchmarks comparing LINDBLAD to other simulators?', a: 'Yes, under the academic license. We ask that you cite the version (R.1.3.1) and report hardware specs alongside any performance numbers.' },
   { q: 'Do you accept community contributions?', a: 'Yes — contributions are welcome from both commercial and non-commercial users, and every PR will be considered. LINDBLAD is maintained by a single author, so reviews may not be quick unless the contribution fixes a major bug. Note that §6.3 of the SLA assigns contribution copyright to the author irrevocably — review before submitting.' },
   { q: 'Can I request new features?', a: 'Yes, requests are considered. Feature requests from commercial consumers are prioritized; community feature requests are evaluated as time permits.' },
 ] as const;
@@ -901,7 +1032,6 @@ function ContactForm() {
         <div className="flex gap-8" style={{ flexWrap: 'wrap' }}>
           {[
             { v: 'commercial', l: 'Commercial license' },
-            { v: 'academic', l: 'Academic / research access' },
             { v: 'support', l: 'Technical question' },
             { v: 'press', l: 'Press / partnership' },
           ].map((option) => (
@@ -947,7 +1077,7 @@ function ContactContent() {
   return (
     <section style={{ paddingTop: 24 }}>
       <div className="container">
-        <div className="grid" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1.4fr)) 1fr', gap: 32 }}>
+        <div className="grid" style={{ gridTemplateColumns: 'minmax(0, 1.4fr) minmax(280px, 1fr)', gap: 32 }}>
           <div className="card" style={{ padding: 40 }}>
             <h2 className="h2">Send an inquiry</h2>
             <p className="text-dim mt-8" style={{ fontSize: 14 }}>Fields marked with an orange asterisk are required.</p>
@@ -974,12 +1104,6 @@ function ContactContent() {
               <h3 className="h3 mt-16">2 business days</h3>
               <p className="text-dim mt-16" style={{ fontSize: 13 }}>Commercial licensing inquiries are prioritized. Academic source requests are usually answered same-day.</p>
             </div>
-            <div className="card corners" style={{ padding: 28 }}>
-              <div className="label">MOTIF</div>
-              <div className="mt-24" style={{ display: 'flex', justifyContent: 'center' }}>
-                <BlochSphere />
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -994,7 +1118,7 @@ function FAQSection() {
         <SectionHeader kicker="FAQ" title="Common questions." />
         <div className="card" style={{ padding: 0 }}>
           {FAQ_ITEMS.map((item, index) => (
-            <details key={item.q} open={index === 1} style={{ borderBottom: index === FAQ_ITEMS.length - 1 ? 0 : '1px solid var(--rule)' }}>
+            <details key={item.q} style={{ borderBottom: index === FAQ_ITEMS.length - 1 ? 0 : '1px solid var(--rule)' }}>
               <summary style={{ padding: '20px 28px', cursor: 'pointer', fontFamily: 'var(--font-mono)', fontSize: 15, listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <span>{item.q}</span>
                 <span className="text-orange" style={{ fontSize: 18 }}>+</span>
@@ -1115,17 +1239,17 @@ function CitationSection() {
     <section>
       <div className="container">
         <SectionHeader kicker="CITATION" title="If you use Lindblad, please cite it." />
-        <div className="code-block">
-{`<span class="cm">// CITATION.cff (excerpt)</span>
+        <div className="code-block" dangerouslySetInnerHTML={{ __html:
+`<span class="cm">// CITATION.cff (excerpt)</span>
 <span class="ty">cff-version</span>: <span class="st">"1.2.0"</span>
 <span class="ty">title</span>:        <span class="st">"Lindblad: a high-performance C++23 quantum computing framework"</span>
 <span class="ty">authors</span>:
   - <span class="ty">family-names</span>: <span class="st">"Suresh"</span>
     <span class="ty">given-names</span>:  <span class="st">"Sricharan"</span>
-<span class="ty">version</span>:      <span class="st">"R.1.2.2"</span>
+<span class="ty">version</span>:      <span class="st">"R.1.3.1"</span>
 <span class="ty">date-released</span>: <span class="st">"2026"</span>
-<span class="ty">license</span>:      <span class="st">"Lindblad-SLA-1.0"</span>`}
-        </div>
+<span class="ty">license</span>:      <span class="st">"Lindblad-SLA-1.0"</span>`
+        }} />
       </div>
     </section>
   );

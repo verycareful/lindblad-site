@@ -4,10 +4,11 @@ import { LindbladGlyph } from './circuit';
 
 function ThemeToggle() {
   const [theme, setTheme] = useState<ThemeName>(() => {
-    if (typeof document === 'undefined') {
-      return 'dark';
-    }
-
+    if (typeof document === 'undefined') return 'dark';
+    try {
+      const saved = localStorage.getItem('lb-theme') as ThemeName | null;
+      if (saved === 'dark' || saved === 'light') return saved;
+    } catch {}
     return (document.documentElement.getAttribute('data-theme') as ThemeName | null) || 'dark';
   });
 
@@ -15,21 +16,8 @@ function ThemeToggle() {
     document.documentElement.setAttribute('data-theme', theme);
     try {
       localStorage.setItem('lb-theme', theme);
-    } catch {
-      // Ignore storage failures in private modes.
-    }
+    } catch {}
   }, [theme]);
-
-  useEffect(() => {
-    try {
-      const saved = localStorage.getItem('lb-theme') as ThemeName | null;
-      if (saved === 'dark' || saved === 'light') {
-        setTheme(saved);
-      }
-    } catch {
-      // Ignore storage failures in private modes.
-    }
-  }, []);
 
   return (
     <button
@@ -51,7 +39,7 @@ export function Nav({ active = 'home' }: { active?: PageName }) {
         <a href="index.html" className="wordmark">
           <LindbladGlyph size={22} />
           <span>lindblad</span>
-          <span className="tag" style={{ marginLeft: 8 }}>R.1.2.2</span>
+          <span className="tag" style={{ marginLeft: 8 }}>R.1.3.1</span>
         </a>
         <div className="nav-links">
           <a href="index.html" className={"nav-link" + (active === 'home' ? ' active' : '')}>OVERVIEW</a>
@@ -109,7 +97,7 @@ export function Footer() {
         </div>
         <hr className="rule mt-48" />
         <div className="flex justify-between mt-24" style={{ flexWrap: 'wrap', gap: 16 }}>
-          <span className="mono text-faint" style={{ fontSize: 12 }}>BUILD R.1.2.2 · 94 TESTS · 16 SUITES · ALL PASSING</span>
+          <span className="mono text-faint" style={{ fontSize: 12 }}>BUILD R.1.3.1 · 223 TESTS · 35 SUITES</span>
           <span className="mono text-faint" style={{ fontSize: 12 }}>C++23 · OpenMP · Eigen · NLopt</span>
         </div>
       </div>
