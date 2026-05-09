@@ -3,6 +3,12 @@
 All notable changes to this repository will be documented in this file.
 
 
+## [R.1.2.2] - 2026-05-09
+
+### Changed
+- Aligned frontend release strings and metadata to external Lindblad release R.1.2.2 (frontend now references upstream release tag).
+
+
 ## [R.1.0.1] - 2026-05-05
 
 ### Changed

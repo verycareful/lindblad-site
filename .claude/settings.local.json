@@ -1,0 +1,7 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(powershell -Command \"Expand-Archive -Path 'lindblad-site-1fc479b24be71d689af0d17041fdf25124883c69.zip' -DestinationPath '_zipextract' -Force\")"
+    ]
+  }
+}

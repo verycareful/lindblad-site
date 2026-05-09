@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.0.1 · 94/94 TESTS PASSING</span>
+          <span className="eyebrow">RELEASE R.1.2.2 · 94/94 TESTS PASSING</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -315,7 +315,7 @@ const ALGOS = [
     name: 'VQE',
     full: 'Variational Quantum Eigensolver',
     family: 'Variational',
-    desc: 'Find the ground state of a Hamiltonian by minimising ⟨ψ(θ)|H|ψ(θ)⟩ over a parameterized ansatz. Q++ ships hardware-efficient and UCCSD-style ansatze with NLopt-driven optimization.',
+    desc: 'Find the ground state of a Hamiltonian by minimising ⟨ψ(θ)|H|ψ(θ)⟩ over a parameterized ansatz. LINDBLAD ships hardware-efficient and UCCSD-style ansatze with NLopt-driven optimization.',
     inputs: ['SparsePauliOp Hamiltonian', 'Ansatz generator', 'Initial parameters θ₀'],
     outputs: ['final_cost (eigenvalue estimate)', 'optimal_params θ*', 'convergence trace'],
     sims: ['Statevector', 'Density Matrix', 'MPS'],
@@ -349,7 +349,7 @@ const ALGOS = [
     name: 'QPE',
     full: 'Quantum Phase Estimation',
     family: 'Search & estimation',
-    desc: 'Extract the phase φ of an eigenvalue e^{2πiφ} of a unitary U via inverse QFT. Q++ implements exact phase extraction with arbitrary precision qubits.',
+    desc: 'Extract the phase φ of an eigenvalue e^{2πiφ} of a unitary U via inverse QFT. LINDBLAD implements exact phase extraction with arbitrary precision qubits.',
     inputs: ['Unitary U', 'Eigenstate |ψ⟩', 'Precision qubits k'],
     outputs: ['phase φ ∈ [0,1)', 'binary representation', 'amplitude distribution'],
     sims: ['Statevector'],
@@ -360,7 +360,7 @@ const ALGOS = [
     name: 'Grover',
     full: "Grover's Search",
     family: 'Search & estimation',
-    desc: 'Quadratic-speedup unstructured search via amplitude amplification. Q++ provides MCX-based oracles with auto-iteration count from problem size.',
+    desc: 'Quadratic-speedup unstructured search via amplitude amplification. LINDBLAD provides MCX-based oracles with auto-iteration count from problem size.',
     inputs: ['Oracle (function or SparsePauliOp)', 'Marked state count m', 'Iterations k'],
     outputs: ['best_bitstring', 'success_probability', 'histogram'],
     sims: ['Statevector', 'MPS'],
@@ -371,7 +371,7 @@ const ALGOS = [
     name: 'BV',
     full: 'Bernstein–Vazirani family',
     family: 'Oracular',
-    desc: 'Recover a hidden bitstring s with one quantum query. Q++ ships standard, recursive, and probabilistic BV variants - all natively Clifford-simulable.',
+    desc: 'Recover a hidden bitstring s with one quantum query. LINDBLAD ships standard, recursive, and probabilistic BV variants - all natively Clifford-simulable.',
     inputs: ['Oracle f(x) = s·x'],
     outputs: ['recovered s', 'single-query certainty'],
     sims: ['Statevector', 'Clifford', 'Density Matrix'],
@@ -393,7 +393,7 @@ const ALGOS = [
     name: 'Simon',
     full: "Simon's Algorithm",
     family: 'Oracular',
-    desc: 'Find the period s of f(x) = f(x ⊕ s) with O(n) queries. Q++ implements GF(2) elimination on the sampled equations to recover s.',
+    desc: 'Find the period s of f(x) = f(x ⊕ s) with O(n) queries. LINDBLAD implements GF(2) elimination on the sampled equations to recover s.',
     inputs: ['Oracle with period s', 'Sample budget'],
     outputs: ['period s', 'GF(2) elimination trace'],
     sims: ['Statevector', 'Clifford'],
@@ -832,10 +832,10 @@ export function BenchmarksPage() {
 }
 
 const FAQ_ITEMS = [
-  { q: 'Can I evaluate Q++ before committing to a commercial license?', a: 'Yes. Evaluation licenses run 30–90 days and grant access for internal benchmarking and integration testing. Contact us with your evaluation scope.' },
+  { q: 'Can I evaluate LINDBLAD before committing to a commercial license?', a: 'Yes. Evaluation licenses run 30–90 days and grant access for internal benchmarking and integration testing. Contact us with your evaluation scope.' },
   { q: 'Is academic access automatic?', a: 'Yes. The source is published on GitHub at github.com/verycareful/lindblad and is available via CMake FetchContent or release tarballs. Academic and non-commercial use is free under the SLA — no request required.' },
-  { q: 'Can I publish benchmarks comparing Q++ to other simulators?', a: 'Yes, under the academic license. We ask that you cite the version (R.1.0.1) and report hardware specs alongside any performance numbers.' },
-  { q: 'Do you accept community contributions?', a: 'Yes — contributions are welcome from both commercial and non-commercial users, and every PR will be considered. Q++ is maintained by a single author, so reviews may not be quick unless the contribution fixes a major bug. Note that §6.3 of the SLA assigns contribution copyright to the author irrevocably — review before submitting.' },
+  { q: 'Can I publish benchmarks comparing LINDBLAD to other simulators?', a: 'Yes, under the academic license. We ask that you cite the version (R.1.2.2) and report hardware specs alongside any performance numbers.' },
+  { q: 'Do you accept community contributions?', a: 'Yes — contributions are welcome from both commercial and non-commercial users, and every PR will be considered. LINDBLAD is maintained by a single author, so reviews may not be quick unless the contribution fixes a major bug. Note that §6.3 of the SLA assigns contribution copyright to the author irrevocably — review before submitting.' },
   { q: 'Can I request new features?', a: 'Yes, requests are considered. Feature requests from commercial consumers are prioritized; community feature requests are evaluated as time permits.' },
 ] as const;
 
@@ -875,10 +875,10 @@ function ContactForm() {
 
   const submit = (event: React.FormEvent) => {
     event.preventDefault();
-    const subject = encodeURIComponent(`Q++ ${form.intent} inquiry — ${form.org || form.name}`);
+    const subject = encodeURIComponent(`LINDBLAD ${form.intent} inquiry — ${form.org || form.name}`);
     const body = encodeURIComponent(
       `Name: ${form.name}\nOrganization: ${form.org}\nEmail: ${form.email}\n` +
-      `Inquiry type: ${form.intent}\nUse case: ${form.use}\nTimeline: ${form.timeline}\n\n${form.msg}\n\n— sent via Q++ website`,
+      `Inquiry type: ${form.intent}\nUse case: ${form.use}\nTimeline: ${form.timeline}\n\n${form.msg}\n\n— sent via LINDBLAD website`,
     );
     window.location.href = `mailto:qpp.support@proton.me?subject=${subject}&body=${body}`;
     setSent(true);
@@ -930,7 +930,7 @@ function ContactForm() {
           style={{ ...inputStyle, minHeight: 140, fontFamily: 'var(--font-sans)', fontSize: 14, resize: 'vertical' }}
           value={form.msg}
           onChange={update('msg')}
-          placeholder="Tell us about your project, scale of deployment, and any specific Q++ features you're interested in."
+          placeholder="Tell us about your project, scale of deployment, and any specific LINDBLAD features you're interested in."
         />
       </Field>
       <div className="flex justify-between items-center" style={{ flexWrap: 'wrap', gap: 16 }}>
@@ -1122,7 +1122,7 @@ function CitationSection() {
 <span class="ty">authors</span>:
   - <span class="ty">family-names</span>: <span class="st">"Suresh"</span>
     <span class="ty">given-names</span>:  <span class="st">"Sricharan"</span>
-<span class="ty">version</span>:      <span class="st">"R.1.0.1"</span>
+<span class="ty">version</span>:      <span class="st">"R.1.2.2"</span>
 <span class="ty">date-released</span>: <span class="st">"2026"</span>
 <span class="ty">license</span>:      <span class="st">"Lindblad-SLA-1.0"</span>`}
         </div>

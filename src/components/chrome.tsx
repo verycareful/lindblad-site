@@ -51,7 +51,7 @@ export function Nav({ active = 'home' }: { active?: PageName }) {
         <a href="index.html" className="wordmark">
           <LindbladGlyph size={22} />
           <span>lindblad</span>
-          <span className="tag" style={{ marginLeft: 8 }}>R.1.0.0</span>
+          <span className="tag" style={{ marginLeft: 8 }}>R.1.2.2</span>
         </a>
         <div className="nav-links">
           <a href="index.html" className={"nav-link" + (active === 'home' ? ' active' : '')}>OVERVIEW</a>
@@ -109,7 +109,7 @@ export function Footer() {
         </div>
         <hr className="rule mt-48" />
         <div className="flex justify-between mt-24" style={{ flexWrap: 'wrap', gap: 16 }}>
-          <span className="mono text-faint" style={{ fontSize: 12 }}>BUILD R.1.0.1 · 94 TESTS · 16 SUITES · ALL PASSING</span>
+          <span className="mono text-faint" style={{ fontSize: 12 }}>BUILD R.1.2.2 · 94 TESTS · 16 SUITES · ALL PASSING</span>
           <span className="mono text-faint" style={{ fontSize: 12 }}>C++23 · OpenMP · Eigen · NLopt</span>
         </div>
       </div>
