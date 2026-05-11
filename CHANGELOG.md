@@ -3,6 +3,16 @@
 All notable changes to this repository will be documented in this file.
 
 
+## [R.1.3.2] - 2026-05-11
+
+### Changed
+- Updated all version references and content strings to upstream Lindblad R.1.3.2 (223 tests · 35 suites · all passing).
+- Hero eyebrow updated to `RELEASE R.1.3.2 · 223 TESTS · 35 SUITES · ALL PASSING`.
+- FetchContent `GIT_TAG` comment updated to `R.1.3.2`.
+- Quick-start footer label and release-notes link updated to `R.1.3.2`.
+- FAQ benchmark citation version updated to `R.1.3.2`.
+- License page citation snippet version updated to `R.1.3.2`.
+
 ## [R.1.3.1] - 2026-05-09
 
 ### Added
