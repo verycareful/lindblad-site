@@ -327,7 +327,7 @@ $ ctest --test-dir build --output-on-failure
           </div>
         </div>
 
-        <div className="flex gap-12 mt-32" style={{ flexWrap: 'wrap' }}>
+        <div className="flex gap-12 mt-16" style={{ flexWrap: 'wrap' }}>
           <a href="https://github.com/verycareful/lindblad" target="_blank" rel="noopener" className="btn btn-primary">↗ github.com/verycareful/lindblad</a>
           <a href="https://github.com/verycareful/lindblad/releases/tag/R.1.3.2" target="_blank" rel="noopener" className="btn">↗ R.1.3.2 RELEASE NOTES</a>
         </div>
@@ -963,12 +963,32 @@ export function BenchmarksPage() {
 }
 
 const FAQ_ITEMS = [
-  { q: 'Can I evaluate LINDBLAD before committing to a commercial license?', a: 'Yes. Evaluation licenses run 30–90 days and grant access for internal benchmarking and integration testing. Contact us with your evaluation scope.' },
+  { q: 'Can I evaluate LINDBLAD before committing to a commercial license?', a: 'It depends on your situation. If you are an individual researcher or academic, the non-commercial license covers evaluation at no cost. If you represent a for-profit organization, any use — including evaluation and benchmarking — constitutes Commercial Use under §1.5 of the SLA and requires a commercial license agreement. Contact us to discuss terms before running it in a company context.' },
   { q: 'Is academic access automatic?', a: 'Yes. The source is published on GitHub at github.com/verycareful/lindblad and is available via CMake FetchContent or release tarballs. Academic and non-commercial use is free under the SLA — no request required.' },
   { q: 'Can I publish benchmarks comparing LINDBLAD to other simulators?', a: 'Yes, under the academic license. We ask that you cite the version (R.1.3.2) and report hardware specs alongside any performance numbers.' },
   { q: 'Do you accept community contributions?', a: 'Yes — contributions are welcome from both commercial and non-commercial users, and every PR will be considered. LINDBLAD is maintained by a single author, so reviews may not be quick unless the contribution fixes a major bug. Note that §6.3 of the SLA assigns contribution copyright to the author irrevocably — review before submitting.' },
   { q: 'Can I request new features?', a: 'Yes, requests are considered. Feature requests from commercial consumers are prioritized; community feature requests are evaluated as time permits.' },
 ] as const;
+
+function Field({ label, children, required }: { label: string; children: React.ReactNode; required?: boolean }) {
+  return (
+    <label className="flex-col gap-8" style={{ display: 'flex' }}>
+      <span className="label">{label}{required ? <span className="text-orange"> *</span> : null}</span>
+      {children}
+    </label>
+  );
+}
+
+const inputStyle = {
+  background: 'var(--bg)',
+  border: '1px solid var(--rule)',
+  color: 'var(--ink)',
+  fontFamily: 'var(--font-mono)',
+  fontSize: 14,
+  padding: '12px 14px',
+  outline: 'none',
+  transition: 'border-color 120ms',
+};
 
 function ContactForm() {
   const [form, setForm] = useState({
@@ -984,24 +1004,6 @@ function ContactForm() {
 
   const update = (key: keyof typeof form) => (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setForm((current) => ({ ...current, [key]: event.target.value }));
-  };
-
-  const Field = ({ label, children, required }: { label: string; children: React.ReactNode; required?: boolean }) => (
-    <label className="flex-col gap-8" style={{ display: 'flex' }}>
-      <span className="label">{label}{required ? <span className="text-orange"> *</span> : null}</span>
-      {children}
-    </label>
-  );
-
-  const inputStyle = {
-    background: 'var(--bg)',
-    border: '1px solid var(--rule)',
-    color: 'var(--ink)',
-    fontFamily: 'var(--font-mono)',
-    fontSize: 14,
-    padding: '12px 14px',
-    outline: 'none',
-    transition: 'border-color 120ms',
   };
 
   const submit = (event: React.FormEvent) => {
@@ -1102,7 +1104,7 @@ function ContactContent() {
             <div className="card" style={{ padding: 28 }}>
               <div className="label">RESPONSE TIME</div>
               <h3 className="h3 mt-16">2 business days</h3>
-              <p className="text-dim mt-16" style={{ fontSize: 13 }}>Commercial licensing inquiries are prioritized. Academic source requests are usually answered same-day.</p>
+              <p className="text-dim mt-16" style={{ fontSize: 13 }}>Commercial licensing inquiries are prioritized. All other inquiries are usually answered same-day.</p>
             </div>
           </div>
         </div>
@@ -1144,7 +1146,7 @@ export function ContactPage() {
             <span style={{ color: 'var(--orange)' }}>specifics.</span>
           </h1>
           <p className="lead mt-32">
-            Whether you need a commercial license, academic source access, or technical discussion - start a thread. We respond to every inbound within two business days.
+            Whether you need a commercial license, technical support, or just want to discuss a use case — start a thread. We respond to every inbound within two business days.
           </p>
         </div>
       </section>
