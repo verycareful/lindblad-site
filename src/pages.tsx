@@ -1185,7 +1185,7 @@ function LicensePaths() {
             </ul>
             <hr className="rule mt-32" />
             <div className="flex gap-12 mt-24">
-              <a href="contact.html" className="btn">REQUEST SOURCE →</a>
+              <a href="https://github.com/verycareful/lindblad" className="btn">GITHUB ↗ </a>
             </div>
           </div>
           <div className="card corners" style={{ padding: 40, background: 'linear-gradient(180deg, var(--orange-faint), transparent 70%)' }}>
