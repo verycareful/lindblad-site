@@ -3,6 +3,16 @@
 All notable changes to this repository will be documented in this file.
 
 
+## [R.1.4.1] - 2026-05-12
+
+### Changed
+- Updated all version references and content strings to upstream Lindblad R.1.4.1 (233 tests · 36 suites · all passing).
+- Hero eyebrow updated to `RELEASE R.1.4.1 · 233 TESTS · 36 SUITES · ALL PASSING`.
+- FetchContent `GIT_TAG` comment updated to `R.1.4.1`.
+- Quick-start footer label and release-notes link updated to `R.1.4.1`.
+- Footer banner updated to `BUILD R.1.4.1 · 233/233 · 36 SUITES`.
+- Algorithm catalogue updated to explicitly list the `distributed` variant under the Bernstein-Vazirani family description.
+
 ## [R.1.3.2] - 2026-05-11
 
 ### Changed

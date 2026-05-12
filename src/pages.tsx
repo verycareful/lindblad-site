@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.3.2 · 223 TESTS · 35 SUITES · ALL PASSING</span>
+          <span className="eyebrow">RELEASE R.1.4.1 · 233 TESTS · 36 SUITES · ALL PASSING</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -61,7 +61,7 @@ function HomeHero() {
           <Stat label="QUBITS BENCHED" value={<Counter to={20} />} sub="MA-QAOA layerwise · 1380 params" />
           <Stat label="SIMULATOR BACKENDS" value={<Counter to={4} />} sub="Statevector · DM · Clifford · MPS" accent="var(--orange)" />
           <Stat label="ALGORITHMS" value={<Counter to={9} />} sub="VQE · QAOA · MA-QAOA · Grover · QPE · BV · DJ · Simon · Ising" accent="var(--blue)" />
-          <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="223 unit tests · 35 test suites" />
+          <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="233 unit tests · 36 test suites" />
         </div>
       </div>
     </section>
@@ -285,14 +285,14 @@ function LaunchSection() {
 
     <span class="cm"># Or fetch from GitHub:</span>
     <span class="cm"># GIT_REPOSITORY git@github.com:verycareful/lindblad.git</span>
-    <span class="cm"># GIT_TAG        R.1.3.2</span>
+    <span class="cm"># GIT_TAG        R.1.4.1</span>
 )
 <span class="fn">FetchContent_MakeAvailable</span>(lindblad)
 
 <span class="fn">target_link_libraries</span>(my_app <span class="ty">PRIVATE</span> lindblad_core)`
             }} />
             <div className="flex justify-between items-center" style={{ padding: '10px 18px', borderTop: '1px solid var(--rule)', background: 'var(--surface-2)' }}>
-              <span className="mono text-faint" style={{ fontSize: 11 }}>LATEST RELEASE · R.1.3.2</span>
+              <span className="mono text-faint" style={{ fontSize: 11 }}>LATEST RELEASE · R.1.4.1</span>
               <a href="https://github.com/verycareful/lindblad/releases" target="_blank" rel="noopener" className="mono" style={{ fontSize: 11, color: 'var(--orange)' }}>↗ ALL RELEASES</a>
             </div>
           </div>
@@ -321,7 +321,7 @@ $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \\
    [214/214] Linking liblindblad_core.a
 
 $ ctest --test-dir build --output-on-failure
-   100% tests passed · 223/223 across 35 suites`
+   100% tests passed · 233/233 across 36 suites`
               }} />
             </div>
           </div>
@@ -329,7 +329,7 @@ $ ctest --test-dir build --output-on-failure
 
         <div className="flex gap-12 mt-16" style={{ flexWrap: 'wrap' }}>
           <a href="https://github.com/verycareful/lindblad" target="_blank" rel="noopener" className="btn btn-primary">↗ github.com/verycareful/lindblad</a>
-          <a href="https://github.com/verycareful/lindblad/releases/tag/R.1.3.2" target="_blank" rel="noopener" className="btn">↗ R.1.3.2 RELEASE NOTES</a>
+          <a href="https://github.com/verycareful/lindblad/releases/tag/R.1.4.1" target="_blank" rel="noopener" className="btn">↗ R.1.4.1 RELEASE NOTES</a>
         </div>
       </div>
     </section>
@@ -481,7 +481,7 @@ const ALGOS = [
     name: 'BV',
     full: 'Bernstein–Vazirani family',
     family: 'Oracular',
-    desc: 'Recover a hidden bitstring s with one quantum query. LINDBLAD ships standard, recursive, and probabilistic BV variants - all natively Clifford-simulable.',
+    desc: 'Recover a hidden bitstring s with one quantum query. LINDBLAD ships standard, recursive, probabilistic, and distributed BV variants - all natively Clifford-simulable.',
     inputs: ['Oracle f(x) = s·x'],
     outputs: ['recovered s', 'single-query certainty'],
     sims: ['Statevector', 'Clifford', 'Density Matrix'],
