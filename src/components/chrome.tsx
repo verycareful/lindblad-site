@@ -8,7 +8,7 @@ function ThemeToggle() {
     try {
       const saved = localStorage.getItem('lb-theme') as ThemeName | null;
       if (saved === 'dark' || saved === 'light') return saved;
-    } catch {}
+    } catch { }
     return (document.documentElement.getAttribute('data-theme') as ThemeName | null) || 'dark';
   });
 
@@ -16,7 +16,7 @@ function ThemeToggle() {
     document.documentElement.setAttribute('data-theme', theme);
     try {
       localStorage.setItem('lb-theme', theme);
-    } catch {}
+    } catch { }
   }, [theme]);
 
   return (
@@ -39,7 +39,7 @@ export function Nav({ active = 'home' }: { active?: PageName }) {
         <a href="index.html" className="wordmark">
           <LindbladGlyph size={22} />
           <span>lindblad</span>
-          <span className="tag" style={{ marginLeft: 8 }}>R.1.3.2</span>
+          <span className="tag" style={{ marginLeft: 8 }}>R.1.4.1</span>
         </a>
         <div className="nav-links">
           <a href="index.html" className={"nav-link" + (active === 'home' ? ' active' : '')}>OVERVIEW</a>
