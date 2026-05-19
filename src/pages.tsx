@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.7.8 · 594 TESTS · 71 SUITES · ALL PASSING</span>
+          <span className="eyebrow">RELEASE R.1.8.0 · 594 TESTS · 71 SUITES · ALL PASSING</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -60,7 +60,7 @@ function HomeHero() {
         <div className="grid mt-64" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
           <Stat label="QUBITS BENCHED" value={<Counter to={20} />} sub="MA-QAOA layerwise · 1380 params" />
           <Stat label="SIMULATOR BACKENDS" value={<Counter to={4} />} sub="Statevector · DM · Clifford · MPS" accent="var(--orange)" />
-          <Stat label="ALGORITHMS" value={<Counter to={9} />} sub="VQE · QAOA · MA-QAOA · Grover · QPE · BV · DJ · Simon · QFT" accent="var(--blue)" />
+          <Stat label="ALGORITHMS" value={<Counter to={10} />} sub="VQE · QAOA · MA-QAOA · Grover · QPE · BV · DJ · Simon · QFT · Shor" accent="var(--blue)" />
           <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="538 unit tests · 66 test suites" />
         </div>
       </div>
@@ -78,9 +78,10 @@ const ALGO_MATRIX = [
   [2, 1, 1, 0],
   [2, 1, 1, 0],
   [2, 1, 1, 1],
+  [2, 1, 0, 1],
 ] as const;
 
-const ALGO_NAMES = ['VQE', 'QAOA', 'MA-QAOA', 'QPE', 'Grover', 'BV', 'Deutsch-Jozsa', 'Simon', 'QFT'] as const;
+const ALGO_NAMES = ['VQE', 'QAOA', 'MA-QAOA', 'QPE', 'Grover', 'BV', 'Deutsch-Jozsa', 'Simon', 'QFT', 'Shor'] as const;
 const SIM_NAMES = ['Statevector', 'Density Matrix', 'Clifford', 'MPS'] as const;
 
 function CapabilityMatrix() {
@@ -521,6 +522,17 @@ const ALGOS = [
     sims: ['Statevector', 'Density Matrix', 'Clifford', 'MPS'],
     uses: ['QPE subroutine', "Shor's algorithm", 'Quantum signal processing'],
   },
+  {
+    id: 'shor',
+    name: 'Shor',
+    full: "Shor's Factoring Algorithm",
+    family: 'Search & estimation',
+    desc: 'Integer factorisation via quantum order finding. Classical pre-screening (even N, perfect powers, trial GCDs) then QPE-based period finding with controlled modular-exponentiation unitaries and continued-fraction recovery.',
+    inputs: ['Composite integer N', 'max_attempts', 'seed', 'backend config'],
+    outputs: ['factor p', 'cofactor N/p', 'method (trivial_gcd | perfect_power | quantum)'],
+    sims: ['Statevector', 'Density Matrix', 'MPS'],
+    uses: ['Cryptanalysis', 'Number theory', 'QPE showcase'],
+  },
 ] as const;
 
 const FAMILIES = ['All', 'Variational', 'Search & estimation', 'Oracular', 'Transform'] as const;
@@ -622,7 +634,7 @@ function ArchitectureSection() {
         />
         <div className="card" style={{ padding: 0 }}>
           {[
-            { l: 'ALGORITHMS', v: 'VQE · QAOA · MA-QAOA · QPE · Grover · BV · DJ · Simon · QFT  |  Qudit: BV · DJ · Grover · QPE · Simon', c: 'var(--orange)' },
+            { l: 'ALGORITHMS', v: 'VQE · QAOA · MA-QAOA · QPE · Grover · BV · DJ · Simon · QFT · Shor  |  Qudit: BV · DJ · Grover · QPE · Simon', c: 'var(--orange)' },
             { l: 'PRIMITIVES', v: 'Estimator (with caching · gradient) · Sampler', c: 'var(--blue)' },
             { l: 'TRANSPILER', v: 'ZYZ · KAK · SABRE Layout (3-pass) · SABRE Routing · BasisTranslator', c: 'var(--ink)' },
             { l: 'SIMULATORS', v: 'Statevector · Density Matrix · Clifford · MPS  |  Qudit: Statevector · Density Matrix · MPS · Clifford (prime d)', c: 'var(--ink)' },
