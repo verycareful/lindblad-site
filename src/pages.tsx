@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.7.3 · 538 TESTS · 66 SUITES · ALL PASSING</span>
+          <span className="eyebrow">RELEASE R.1.7.4 · 538 TESTS · 66 SUITES · ALL PASSING</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -286,14 +286,14 @@ function LaunchSection() {
 
     <span class="cm"># Or fetch from GitHub:</span>
     <span class="cm"># GIT_REPOSITORY git@github.com:verycareful/lindblad.git</span>
-    <span class="cm"># GIT_TAG        R.1.7.3</span>
+    <span class="cm"># GIT_TAG        R.1.7.4</span>
 )
 <span class="fn">FetchContent_MakeAvailable</span>(lindblad)
 
 <span class="fn">target_link_libraries</span>(my_app <span class="ty">PRIVATE</span> lindblad_core)`
             }} />
             <div className="flex justify-between items-center" style={{ padding: '10px 18px', borderTop: '1px solid var(--rule)', background: 'var(--surface-2)' }}>
-              <span className="mono text-faint" style={{ fontSize: 11 }}>LATEST RELEASE · R.1.7.3</span>
+              <span className="mono text-faint" style={{ fontSize: 11 }}>LATEST RELEASE · R.1.7.4</span>
               <a href="https://github.com/verycareful/lindblad/releases" target="_blank" rel="noopener" className="mono" style={{ fontSize: 11, color: 'var(--orange)' }}>↗ ALL RELEASES</a>
             </div>
           </div>
@@ -330,7 +330,7 @@ $ ctest --test-dir build --output-on-failure
 
         <div className="flex gap-12 mt-16" style={{ flexWrap: 'wrap' }}>
           <a href="https://github.com/verycareful/lindblad" target="_blank" rel="noopener" className="btn btn-primary">↗ github.com/verycareful/lindblad</a>
-          <a href="https://github.com/verycareful/lindblad/releases/tag/R.1.7.3" target="_blank" rel="noopener" className="btn">↗ R.1.7.3 RELEASE NOTES</a>
+          <a href="https://github.com/verycareful/lindblad/releases/tag/R.1.7.4" target="_blank" rel="noopener" className="btn">↗ R.1.7.4 RELEASE NOTES</a>
         </div>
       </div>
     </section>
@@ -345,7 +345,7 @@ function LicenseSplit() {
           num="05 / 06"
           kicker="LICENSING"
           title="Source-available. Two paths."
-          desc="The Lindblad Software License v2.0 is free for non-commercial and academic use. Commercial use of any kind requires a separate written license."
+          desc="The Lindblad Software License v2.1 is free for non-commercial and academic use. Commercial use of any kind requires a separate written license."
         />
         <div className="grid" style={{ gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           <div className="card" style={{ padding: 36 }}>
@@ -1111,7 +1111,7 @@ function ContactContent() {
               <div className="label">REPOSITORY</div>
               <h3 className="h3 mt-16">GitHub</h3>
               <a className="mono mt-16" target="_blank" rel="noopener" href="https://github.com/verycareful/lindblad" style={{ display: 'inline-block', fontSize: 14, color: 'var(--blue)', marginTop: 16 }}>github.com/verycareful/lindblad ↗</a>
-              <p className="text-dim mt-16" style={{ fontSize: 13 }}>Issues, pull requests, and bug reports. Forks are not licensed under SLA v2.0.</p>
+              <p className="text-dim mt-16" style={{ fontSize: 13 }}>Issues, pull requests, and bug reports. Forks are not licensed under SLA v2.1.</p>
             </div>
             <div className="card" style={{ padding: 28 }}>
               <div className="label">RESPONSE TIME</div>
@@ -1170,13 +1170,13 @@ export function ContactPage() {
 
 const KEY_TERMS = [
   { n: '§1', title: 'Scope', body: 'Source-available. The software is provided in source form for review, study, and authorized use. The author retains all copyright.' },
-  { n: '§2', title: 'Permitted use', body: 'Non-commercial and academic use is granted at no cost. "Non-commercial" means use that does not produce, sell, or support a commercial product or service.' },
-  { n: '§3', title: 'Commercial use', body: 'Any commercial use, including internal R&D supporting commercial products, requires a separate written license. Contact qpp.support@proton.me to begin discussion.' },
-  { n: '§4', title: 'Redistribution', body: 'Redistribution in any form - forks, copies, derivative works - is strictly prohibited without explicit written authorization. GitHub forks are technically permitted but not licensed for any use other than PR review.' },
-  { n: '§5', title: 'Modifications', body: 'Modifications for personal study are permitted under non-commercial use. Modifications for commercial deployment require explicit license terms.' },
+  { n: '§2', title: 'Permitted use', body: 'Non-commercial and academic use is granted at no cost. "Non-commercial" means use that does not produce, sell, or support a commercial product or service. Internal modifications for personal or academic study are also permitted.' },
+  { n: '§3', title: 'Redistribution', body: 'Private sharing of unmodified copies with individual peers or collaborators for non-commercial purposes is permitted under the same license terms (§3.1). Public redistribution — forks, mirrors, package registries, derivative works — is prohibited without written authorization. GitHub forks are not licensed for any use beyond PR review.' },
+  { n: '§4', title: 'Commercial use', body: 'Any commercial use, including internal R&D supporting commercial products, requires a separate written license. Contact qpp.support@proton.me to begin discussion.' },
+  { n: '§5', title: 'Attribution & citations', body: 'Academic users must cite Lindblad in publications that use it. The CITATION.cff file in the repository contains the canonical citation entry.' },
   { n: '§6.3', title: 'Contributions', body: 'By submitting any contribution (PR, code snippet, bug fix), you irrevocably assign full copyright ownership of that contribution to the author.' },
-  { n: '§7', title: 'Citations', body: 'Academic users must cite Lindblad in publications that use it. The CITATION.cff file in the repository contains the canonical citation entry.' },
   { n: '§8', title: 'Warranty', body: 'The software is provided AS IS, without warranty of any kind. Suitability for any particular purpose must be evaluated by the licensee.' },
+  { n: '§14', title: 'Third-party components', body: 'This software incorporates open-source dependencies (Eigen, NLopt, GoogleTest, Google Benchmark, pybind11). Their license notices are in the NOTICE file. Your obligations under those licenses are independent of and in addition to this Agreement.' },
 ] as const;
 
 function LicensePaths() {
@@ -1191,7 +1191,7 @@ function LicensePaths() {
               <li>✓ Use in research, teaching, dissertations</li>
               <li>✓ Use in academic publications with citation</li>
               <li>✓ Modifications for personal study</li>
-              <li>✗ No redistribution of source or binaries</li>
+              <li>✓ Private peer sharing of unmodified copies permitted (§3.1)</li>
               <li>✗ No commercial deployment of any kind</li>
               <li>✗ No derivative works without authorization</li>
             </ul>
@@ -1260,10 +1260,46 @@ function CitationSection() {
 <span class="ty">authors</span>:
   - <span class="ty">family-names</span>: <span class="st">"Suresh"</span>
     <span class="ty">given-names</span>:  <span class="st">"Sricharan"</span>
-<span class="ty">version</span>:      <span class="st">"R.1.7.2"</span>
+<span class="ty">version</span>:      <span class="st">"R.1.7.4"</span>
 <span class="ty">date-released</span>: <span class="st">"2026"</span>
-<span class="ty">license</span>:      <span class="st">"Lindblad-SLA-2.0"</span>`
+<span class="ty">license</span>:      <span class="st">"Lindblad-SLA-2.1"</span>`
         }} />
+      </div>
+    </section>
+  );
+}
+
+const THIRD_PARTY_DEPS = [
+  { name: 'Eigen', version: '3.4.0', license: 'MPL-2.0', note: 'Built with EIGEN_MPL2_ONLY — only MPL-2.0 headers are compiled in.' },
+  { name: 'NLopt', version: '2.7.1', license: 'LGPL-2.1-or-later', note: 'Statically linked. Lindblad is source-available, so you can recompile against a modified NLopt (satisfies LGPL §6 relinking).' },
+  { name: 'GoogleTest', version: '1.14.0', license: 'BSD 3-Clause', note: 'Test suite only — not linked into any production binary.' },
+  { name: 'Google Benchmark', version: '1.8.3', license: 'Apache 2.0', note: 'Optional benchmark suite only — not linked into any production binary.' },
+  { name: 'pybind11', version: '2.12.0', license: 'BSD 3-Clause', note: 'Optional Python bindings (LINDBLAD_BUILD_PYTHON=ON).' },
+] as const;
+
+function ThirdPartyNotices() {
+  return (
+    <section>
+      <div className="container">
+        <SectionHeader
+          kicker="THIRD-PARTY COMPONENTS · NOTICE"
+          title="Open-source dependencies."
+          desc="These components are fetched at build time via CMake FetchContent. Their license notices are reproduced in full in the NOTICE file in the repository."
+        />
+        <div className="card" style={{ padding: 0 }}>
+          {THIRD_PARTY_DEPS.map((dep, index) => (
+            <div key={dep.name} className="flex" style={{ borderBottom: index === THIRD_PARTY_DEPS.length - 1 ? 0 : '1px solid var(--rule)', padding: '20px 28px', gap: 32, alignItems: 'flex-start' }}>
+              <div style={{ minWidth: 160, flex: '0 0 160px' }}>
+                <div className="mono" style={{ fontSize: 14, fontWeight: 500 }}>{dep.name}</div>
+                <div className="mono text-dim" style={{ fontSize: 12, marginTop: 2 }}>{dep.version}</div>
+              </div>
+              <div style={{ minWidth: 140, flex: '0 0 140px' }}>
+                <span className="mono text-orange" style={{ fontSize: 13 }}>{dep.license}</span>
+              </div>
+              <div className="text-dim" style={{ fontSize: 13, lineHeight: 1.6, flex: 1 }}>{dep.note}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -1274,7 +1310,7 @@ export function LicensePage() {
     <PageFrame active="license">
       <section style={{ paddingTop: 64, paddingBottom: 48, borderTop: 0 }}>
         <div className="container">
-          <div className="eyebrow">§ LINDBLAD SOFTWARE LICENSE v2.0</div>
+          <div className="eyebrow">§ LINDBLAD SOFTWARE LICENSE v2.1</div>
           <h1 className="h-display mt-24" style={{ fontSize: 'clamp(48px, 6vw, 96px)' }}>
             Source-available.
             <br />
@@ -1288,6 +1324,7 @@ export function LicensePage() {
       <LicensePaths />
       <KeyTerms />
       <CitationSection />
+      <ThirdPartyNotices />
     </PageFrame>
   );
 }
