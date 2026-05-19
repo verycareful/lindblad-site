@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.4.1 · 233 TESTS · 36 SUITES · ALL PASSING</span>
+          <span className="eyebrow">RELEASE R.1.7.3 · 538 TESTS · 66 SUITES · ALL PASSING</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -60,8 +60,8 @@ function HomeHero() {
         <div className="grid mt-64" style={{ gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: 16 }}>
           <Stat label="QUBITS BENCHED" value={<Counter to={20} />} sub="MA-QAOA layerwise · 1380 params" />
           <Stat label="SIMULATOR BACKENDS" value={<Counter to={4} />} sub="Statevector · DM · Clifford · MPS" accent="var(--orange)" />
-          <Stat label="ALGORITHMS" value={<Counter to={9} />} sub="VQE · QAOA · MA-QAOA · Grover · QPE · BV · DJ · Simon · Ising" accent="var(--blue)" />
-          <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="233 unit tests · 36 test suites" />
+          <Stat label="ALGORITHMS" value={<Counter to={9} />} sub="VQE · QAOA · MA-QAOA · Grover · QPE · BV · DJ · Simon · QFT" accent="var(--blue)" />
+          <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="538 unit tests · 66 test suites" />
         </div>
       </div>
     </section>
@@ -77,9 +77,10 @@ const ALGO_MATRIX = [
   [2, 1, 1, 1],
   [2, 1, 1, 0],
   [2, 1, 1, 0],
+  [2, 1, 1, 1],
 ] as const;
 
-const ALGO_NAMES = ['VQE', 'QAOA', 'MA-QAOA', 'QPE', 'Grover', 'BV', 'Deutsch-Jozsa', 'Simon'] as const;
+const ALGO_NAMES = ['VQE', 'QAOA', 'MA-QAOA', 'QPE', 'Grover', 'BV', 'Deutsch-Jozsa', 'Simon', 'QFT'] as const;
 const SIM_NAMES = ['Statevector', 'Density Matrix', 'Clifford', 'MPS'] as const;
 
 function CapabilityMatrix() {
@@ -285,14 +286,14 @@ function LaunchSection() {
 
     <span class="cm"># Or fetch from GitHub:</span>
     <span class="cm"># GIT_REPOSITORY git@github.com:verycareful/lindblad.git</span>
-    <span class="cm"># GIT_TAG        R.1.4.1</span>
+    <span class="cm"># GIT_TAG        R.1.7.3</span>
 )
 <span class="fn">FetchContent_MakeAvailable</span>(lindblad)
 
 <span class="fn">target_link_libraries</span>(my_app <span class="ty">PRIVATE</span> lindblad_core)`
             }} />
             <div className="flex justify-between items-center" style={{ padding: '10px 18px', borderTop: '1px solid var(--rule)', background: 'var(--surface-2)' }}>
-              <span className="mono text-faint" style={{ fontSize: 11 }}>LATEST RELEASE · R.1.4.1</span>
+              <span className="mono text-faint" style={{ fontSize: 11 }}>LATEST RELEASE · R.1.7.3</span>
               <a href="https://github.com/verycareful/lindblad/releases" target="_blank" rel="noopener" className="mono" style={{ fontSize: 11, color: 'var(--orange)' }}>↗ ALL RELEASES</a>
             </div>
           </div>
@@ -321,7 +322,7 @@ $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \\
    [214/214] Linking liblindblad_core.a
 
 $ ctest --test-dir build --output-on-failure
-   100% tests passed · 233/233 across 36 suites`
+   100% tests passed · 538/538 across 66 suites`
               }} />
             </div>
           </div>
@@ -329,7 +330,7 @@ $ ctest --test-dir build --output-on-failure
 
         <div className="flex gap-12 mt-16" style={{ flexWrap: 'wrap' }}>
           <a href="https://github.com/verycareful/lindblad" target="_blank" rel="noopener" className="btn btn-primary">↗ github.com/verycareful/lindblad</a>
-          <a href="https://github.com/verycareful/lindblad/releases/tag/R.1.4.1" target="_blank" rel="noopener" className="btn">↗ R.1.4.1 RELEASE NOTES</a>
+          <a href="https://github.com/verycareful/lindblad/releases/tag/R.1.7.3" target="_blank" rel="noopener" className="btn">↗ R.1.7.3 RELEASE NOTES</a>
         </div>
       </div>
     </section>
@@ -344,7 +345,7 @@ function LicenseSplit() {
           num="05 / 06"
           kicker="LICENSING"
           title="Source-available. Two paths."
-          desc="The Lindblad Software License v1.0 is free for non-commercial and academic use. Commercial use of any kind requires a separate written license."
+          desc="The Lindblad Software License v2.0 is free for non-commercial and academic use. Commercial use of any kind requires a separate written license."
         />
         <div className="grid" style={{ gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           <div className="card" style={{ padding: 36 }}>
@@ -509,9 +510,20 @@ const ALGOS = [
     sims: ['Statevector', 'Clifford'],
     uses: ['Pre-Shor pedagogy', 'Algebraic structure detection'],
   },
+  {
+    id: 'qft',
+    name: 'QFT',
+    full: 'Quantum Fourier Transform family',
+    family: 'Transform',
+    desc: 'Standard, inverse (IQFT), approximate (AQFT), and semi-classical QFT. The semi-classical variant uses mid-circuit measurement with feedforward, replacing quantum CP gates with classical corrections — single-qubit gates only. AQFT(m=1) retains only CS gates and is Clifford-simulable for all n. Used as the core subroutine of QPE.',
+    inputs: ['n-qubit register', 'approximation degree m', 'inverse flag', 'swap flag'],
+    outputs: ['QFT-transformed state', 'Fourier coefficients (semi-classical)', 'clifford_compatible flag'],
+    sims: ['Statevector', 'Density Matrix', 'Clifford', 'MPS'],
+    uses: ['QPE subroutine', "Shor's algorithm", 'Quantum signal processing'],
+  },
 ] as const;
 
-const FAMILIES = ['All', 'Variational', 'Search & estimation', 'Oracular'] as const;
+const FAMILIES = ['All', 'Variational', 'Search & estimation', 'Oracular', 'Transform'] as const;
 
 type Family = (typeof FAMILIES)[number];
 
@@ -610,10 +622,10 @@ function ArchitectureSection() {
         />
         <div className="card" style={{ padding: 0 }}>
           {[
-            { l: 'ALGORITHMS', v: 'VQE · QAOA · MA-QAOA · QPE · Grover · BV · DJ · Simon', c: 'var(--orange)' },
+            { l: 'ALGORITHMS', v: 'VQE · QAOA · MA-QAOA · QPE · Grover · BV · DJ · Simon · QFT  |  Qudit: BV · DJ · Grover · QPE · Simon', c: 'var(--orange)' },
             { l: 'PRIMITIVES', v: 'Estimator (with caching · gradient) · Sampler', c: 'var(--blue)' },
             { l: 'TRANSPILER', v: 'ZYZ · KAK · SABRE Layout (3-pass) · SABRE Routing · BasisTranslator', c: 'var(--ink)' },
-            { l: 'SIMULATORS', v: 'Statevector · Density Matrix · Clifford · MPS', c: 'var(--ink)' },
+            { l: 'SIMULATORS', v: 'Statevector · Density Matrix · Clifford · MPS  |  Qudit: Statevector · Density Matrix · MPS · Clifford (prime d)', c: 'var(--ink)' },
             { l: 'NOISE', v: 'Kraus · T1/T2 thermal · Depolarizing · Amplitude/Phase damping · Readout', c: 'var(--ink)' },
             { l: 'CORE', v: 'QuantumCircuit · DAG · SparsePauliOp · IsingHamiltonian', c: 'var(--ink-dim)' },
           ].map((row, index, rows) => (
@@ -635,12 +647,12 @@ export function AlgorithmsPage() {
         <div className="container">
           <div className="eyebrow">§ ALGORITHM CATALOGUE</div>
           <h1 className="h-display mt-24" style={{ fontSize: 'clamp(48px, 6vw, 96px)' }}>
-            Eight families.
+            Nine families.
             <br />
             <span style={{ color: 'var(--orange)' }}>One coherent stack.</span>
           </h1>
           <p className="lead mt-32">
-            Every algorithm is implemented against the same <span className="mono text-orange">Estimator</span> / <span className="mono text-orange">Sampler</span> primitive surface, with the same transpiler cache, gradient infrastructure, and noise model. Drop in, swap simulator, repeat.
+            Classical algorithms run against the same <span className="mono text-orange">Estimator</span> / <span className="mono text-orange">Sampler</span> primitive surface, with the same transpiler cache, gradient infrastructure, and noise model. Qudit generalizations (BV · DJ · Grover · QPE · Simon) run against the <span className="mono text-orange">QuditBackend</span> — statevector, density matrix, MPS, or Clifford (prime d). Drop in, swap backend, repeat.
           </p>
         </div>
       </section>
@@ -965,7 +977,7 @@ export function BenchmarksPage() {
 const FAQ_ITEMS = [
   { q: 'Can I evaluate LINDBLAD before committing to a commercial license?', a: 'It depends on your situation. If you are an individual researcher or academic, the non-commercial license covers evaluation at no cost. If you represent a for-profit organization, any use — including evaluation and benchmarking — constitutes Commercial Use under §1.5 of the SLA and requires a commercial license agreement. Contact us to discuss terms before running it in a company context.' },
   { q: 'Is academic access automatic?', a: 'Yes. The source is published on GitHub at github.com/verycareful/lindblad and is available via CMake FetchContent or release tarballs. Academic and non-commercial use is free under the SLA — no request required.' },
-  { q: 'Can I publish benchmarks comparing LINDBLAD to other simulators?', a: 'Yes, under the academic license. We ask that you cite the version (R.1.3.2) and report hardware specs alongside any performance numbers.' },
+  { q: 'Can I publish benchmarks comparing LINDBLAD to other simulators?', a: 'Yes, under the academic license. We ask that you cite the version (R.1.7.2) and report hardware specs alongside any performance numbers.' },
   { q: 'Do you accept community contributions?', a: 'Yes — contributions are welcome from both commercial and non-commercial users, and every PR will be considered. LINDBLAD is maintained by a single author, so reviews may not be quick unless the contribution fixes a major bug. Note that §6.3 of the SLA assigns contribution copyright to the author irrevocably — review before submitting.' },
   { q: 'Can I request new features?', a: 'Yes, requests are considered. Feature requests from commercial consumers are prioritized; community feature requests are evaluated as time permits.' },
 ] as const;
@@ -1099,7 +1111,7 @@ function ContactContent() {
               <div className="label">REPOSITORY</div>
               <h3 className="h3 mt-16">GitHub</h3>
               <a className="mono mt-16" target="_blank" rel="noopener" href="https://github.com/verycareful/lindblad" style={{ display: 'inline-block', fontSize: 14, color: 'var(--blue)', marginTop: 16 }}>github.com/verycareful/lindblad ↗</a>
-              <p className="text-dim mt-16" style={{ fontSize: 13 }}>Issues, pull requests, and bug reports. Forks are not licensed under SLA v1.0.</p>
+              <p className="text-dim mt-16" style={{ fontSize: 13 }}>Issues, pull requests, and bug reports. Forks are not licensed under SLA v2.0.</p>
             </div>
             <div className="card" style={{ padding: 28 }}>
               <div className="label">RESPONSE TIME</div>
@@ -1248,9 +1260,9 @@ function CitationSection() {
 <span class="ty">authors</span>:
   - <span class="ty">family-names</span>: <span class="st">"Suresh"</span>
     <span class="ty">given-names</span>:  <span class="st">"Sricharan"</span>
-<span class="ty">version</span>:      <span class="st">"R.1.3.2"</span>
+<span class="ty">version</span>:      <span class="st">"R.1.7.2"</span>
 <span class="ty">date-released</span>: <span class="st">"2026"</span>
-<span class="ty">license</span>:      <span class="st">"Lindblad-SLA-1.0"</span>`
+<span class="ty">license</span>:      <span class="st">"Lindblad-SLA-2.0"</span>`
         }} />
       </div>
     </section>
@@ -1262,14 +1274,14 @@ export function LicensePage() {
     <PageFrame active="license">
       <section style={{ paddingTop: 64, paddingBottom: 48, borderTop: 0 }}>
         <div className="container">
-          <div className="eyebrow">§ LINDBLAD SOFTWARE LICENSE v1.0</div>
+          <div className="eyebrow">§ LINDBLAD SOFTWARE LICENSE v2.0</div>
           <h1 className="h-display mt-24" style={{ fontSize: 'clamp(48px, 6vw, 96px)' }}>
             Source-available.
             <br />
             <span style={{ color: 'var(--orange)' }}>Two paths.</span>
           </h1>
           <p className="lead mt-32">
-            Free for non-commercial and academic use. Commercial use of any kind requires a separate written license agreement. Redistribution in any form is prohibited without explicit written authorization.
+            Free for non-commercial and academic use. Commercial use of any kind requires a separate written license agreement. Private non-commercial redistribution of unmodified copies is permitted under the same license terms. Public redistribution in any form is prohibited without explicit written authorization.
           </p>
         </div>
       </section>
