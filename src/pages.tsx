@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.10.3 · 1042 TESTS · 84 SUITES · ALL PASSING</span>
+          <span className="eyebrow">RELEASE R.1.10.4 · 1045 TESTS · 84 SUITES · ALL PASSING</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
