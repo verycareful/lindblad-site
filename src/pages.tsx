@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.10.4 · 1045 TESTS · 84 SUITES · ALL PASSING</span>
+          <span className="eyebrow">RELEASE R.1.10.6 · 1065 TESTS · 85 SUITES · ALL PASSING</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -346,7 +346,7 @@ function LicenseSplit() {
           num="05 / 06"
           kicker="LICENSING"
           title="Source-available. Two paths."
-          desc="The Lindblad Software License v2.1 is free for non-commercial and academic use. Commercial use of any kind requires a separate written license."
+          desc="The Lindblad Software License v2.2 is free for non-commercial and academic use. Commercial use of any kind requires a separate written license."
         />
         <div className="grid" style={{ gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           <div className="card" style={{ padding: 36 }}>
@@ -990,7 +990,7 @@ const FAQ_ITEMS = [
   { q: 'Can I evaluate LINDBLAD before committing to a commercial license?', a: 'It depends on your situation. If you are an individual researcher or academic, the non-commercial license covers evaluation at no cost. If you represent a for-profit organization, any use — including evaluation and benchmarking — constitutes Commercial Use under §1.5 of the SLA and requires a commercial license agreement. Contact us to discuss terms before running it in a company context.' },
   { q: 'Is academic access automatic?', a: 'Yes. The source is published on GitHub at github.com/verycareful/lindblad and is available via CMake FetchContent or release tarballs. Academic and non-commercial use is free under the SLA — no request required.' },
   { q: 'Can I publish benchmarks comparing LINDBLAD to other simulators?', a: 'Yes, under the academic license. We ask that you cite the version (R.1.7.2) and report hardware specs alongside any performance numbers.' },
-  { q: 'Do you accept community contributions?', a: 'Yes — contributions are welcome from both commercial and non-commercial users, and every PR will be considered. LINDBLAD is maintained by a single author, so reviews may not be quick unless the contribution fixes a major bug. Note that §6.3 of the SLA assigns contribution copyright to the author irrevocably — review before submitting.' },
+  { q: 'Do you accept community contributions?', a: 'Yes — contributions are welcome from both commercial and non-commercial users, and every PR will be considered. LINDBLAD is maintained by a single author, so reviews may not be quick unless the contribution fixes a major bug. Note that Contributors retain copyright but grant the author a perpetual irrevocable license to use and commercialize the contribution — see §6.3 of the SLA. Review before submitting.' },
   { q: 'Can I request new features?', a: 'Yes, requests are considered. Feature requests from commercial consumers are prioritized; community feature requests are evaluated as time permits.' },
 ] as const;
 
@@ -1123,7 +1123,7 @@ function ContactContent() {
               <div className="label">REPOSITORY</div>
               <h3 className="h3 mt-16">GitHub</h3>
               <a className="mono mt-16" target="_blank" rel="noopener" href="https://github.com/verycareful/lindblad" style={{ display: 'inline-block', fontSize: 14, color: 'var(--blue)', marginTop: 16 }}>github.com/verycareful/lindblad ↗</a>
-              <p className="text-dim mt-16" style={{ fontSize: 13 }}>Issues, pull requests, and bug reports. Forks are not licensed under SLA v2.1.</p>
+              <p className="text-dim mt-16" style={{ fontSize: 13 }}>Issues, pull requests, and bug reports. Forks are not licensed under SLA v2.2.</p>
             </div>
             <div className="card" style={{ padding: 28 }}>
               <div className="label">RESPONSE TIME</div>
@@ -1274,7 +1274,7 @@ function CitationSection() {
     <span class="ty">given-names</span>:  <span class="st">"Sricharan"</span>
 <span class="ty">version</span>:      <span class="st">"R.1.7.5"</span>
 <span class="ty">date-released</span>: <span class="st">"2026"</span>
-<span class="ty">license</span>:      <span class="st">"Lindblad-SLA-2.1"</span>`
+<span class="ty">license</span>:      <span class="st">"Lindblad-SLA-2.2"</span>`
         }} />
       </div>
     </section>
@@ -1322,7 +1322,7 @@ export function LicensePage() {
     <PageFrame active="license">
       <section style={{ paddingTop: 64, paddingBottom: 48, borderTop: 0 }}>
         <div className="container">
-          <div className="eyebrow">§ LINDBLAD SOFTWARE LICENSE v2.1</div>
+          <div className="eyebrow">§ LINDBLAD SOFTWARE LICENSE v2.2</div>
           <h1 className="h-display mt-24" style={{ fontSize: 'clamp(48px, 6vw, 96px)' }}>
             Source-available.
             <br />
