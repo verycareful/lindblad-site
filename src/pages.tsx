@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.10.7 · 1077 TESTS · 85 SUITES · ALL PASSING</span>
+          <span className="eyebrow">RELEASE R.1.10.8 · 1077 TESTS · 85 SUITES · ALL PASSING</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -346,7 +346,7 @@ function LicenseSplit() {
           num="05 / 06"
           kicker="LICENSING"
           title="Source-available. Two paths."
-          desc="The Lindblad Software License v2.2 is free for non-commercial and academic use. Commercial use of any kind requires a separate written license."
+          desc="The Lindblad Software License v2.3 is free for non-commercial and academic use. Commercial use of any kind requires a separate written license."
         />
         <div className="grid" style={{ gridTemplateColumns: '1fr 1fr', gap: 16 }}>
           <div className="card" style={{ padding: 36 }}>
@@ -399,7 +399,7 @@ function CTA() {
           </p>
           <div className="flex gap-12 mt-48" style={{ justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="benchmarks.html" className="btn btn-primary">SEE BENCHMARKS →</a>
-            <a href="mailto:qpp.support@proton.me" className="btn btn-ghost">qpp.support@proton.me</a>
+            <a href="mailto:lindblad.software@proton.me" className="btn btn-ghost">lindblad.software@proton.me</a>
           </div>
         </div>
       </div>
@@ -1037,7 +1037,7 @@ function ContactForm() {
       `Name: ${form.name}\nOrganization: ${form.org}\nEmail: ${form.email}\n` +
       `Inquiry type: ${form.intent}\nUse case: ${form.use}\nTimeline: ${form.timeline}\n\n${form.msg}\n\n— sent via LINDBLAD website`,
     );
-    window.location.href = `mailto:qpp.support@proton.me?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:lindblad.software@proton.me?subject=${subject}&body=${body}`;
     setSent(true);
   };
 
@@ -1116,14 +1116,14 @@ function ContactContent() {
             <div className="card corners" style={{ padding: 28 }}>
               <div className="label">DIRECT</div>
               <h3 className="h3 mt-16">Email</h3>
-              <a className="mono mt-16" style={{ display: 'inline-block', fontSize: 18, color: 'var(--orange)', marginTop: 16 }} href="mailto:qpp.support@proton.me">qpp.support@proton.me</a>
+              <a className="mono mt-16" style={{ display: 'inline-block', fontSize: 18, color: 'var(--orange)', marginTop: 16 }} href="mailto:lindblad.software@proton.me">lindblad.software@proton.me</a>
               <p className="text-dim mt-16" style={{ fontSize: 13 }}>Best for licensing, NDAs, and pricing questions.</p>
             </div>
             <div className="card" style={{ padding: 28 }}>
               <div className="label">REPOSITORY</div>
               <h3 className="h3 mt-16">GitHub</h3>
               <a className="mono mt-16" target="_blank" rel="noopener" href="https://github.com/verycareful/lindblad" style={{ display: 'inline-block', fontSize: 14, color: 'var(--blue)', marginTop: 16 }}>github.com/verycareful/lindblad ↗</a>
-              <p className="text-dim mt-16" style={{ fontSize: 13 }}>Issues, pull requests, and bug reports. Forks are not licensed under SLA v2.2.</p>
+              <p className="text-dim mt-16" style={{ fontSize: 13 }}>Issues, pull requests, and bug reports. Forks are not licensed under SLA v2.3.</p>
             </div>
             <div className="card" style={{ padding: 28 }}>
               <div className="label">RESPONSE TIME</div>
@@ -1184,7 +1184,7 @@ const KEY_TERMS = [
   { n: '§1', title: 'Scope', body: 'Source-available. The software is provided in source form for review, study, and authorized use. The author retains all copyright.' },
   { n: '§2', title: 'Permitted use', body: 'Non-commercial and academic use is granted at no cost. "Non-commercial" means use that does not produce, sell, or support a commercial product or service. Internal modifications for personal or academic study are also permitted.' },
   { n: '§3', title: 'Redistribution', body: 'Private sharing of unmodified copies with individual peers or collaborators for non-commercial purposes is permitted under the same license terms (§3.1). Public redistribution — forks, mirrors, package registries, derivative works — is prohibited without written authorization. GitHub forks are not licensed for any use beyond PR review.' },
-  { n: '§4', title: 'Commercial use', body: 'Any commercial use, including internal R&D supporting commercial products, requires a separate written license. Contact qpp.support@proton.me to begin discussion.' },
+  { n: '§4', title: 'Commercial use', body: 'Any commercial use, including internal R&D supporting commercial products, requires a separate written license. Contact lindblad.software@proton.me to begin discussion.' },
   { n: '§5', title: 'Attribution & citations', body: 'Academic users must cite Lindblad in publications that use it. The CITATION.cff file in the repository contains the canonical citation entry.' },
   { n: '§6.3', title: 'Contributions', body: 'By submitting any contribution (PR, code snippet, bug fix), you irrevocably assign full copyright ownership of that contribution to the author.' },
   { n: '§8', title: 'Warranty', body: 'The software is provided AS IS, without warranty of any kind. Suitability for any particular purpose must be evaluated by the licensee.' },
@@ -1274,7 +1274,7 @@ function CitationSection() {
     <span class="ty">given-names</span>:  <span class="st">"Sricharan"</span>
 <span class="ty">version</span>:      <span class="st">"R.1.7.5"</span>
 <span class="ty">date-released</span>: <span class="st">"2026"</span>
-<span class="ty">license</span>:      <span class="st">"Lindblad-SLA-2.2"</span>`
+<span class="ty">license</span>:      <span class="st">"Lindblad-SLA-2.3"</span>`
         }} />
       </div>
     </section>
@@ -1322,7 +1322,7 @@ export function LicensePage() {
     <PageFrame active="license">
       <section style={{ paddingTop: 64, paddingBottom: 48, borderTop: 0 }}>
         <div className="container">
-          <div className="eyebrow">§ LINDBLAD SOFTWARE LICENSE v2.2</div>
+          <div className="eyebrow">§ LINDBLAD SOFTWARE LICENSE v2.3</div>
           <h1 className="h-display mt-24" style={{ fontSize: 'clamp(48px, 6vw, 96px)' }}>
             Source-available.
             <br />

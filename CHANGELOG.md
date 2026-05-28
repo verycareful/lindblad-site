@@ -3,6 +3,17 @@
 All notable changes to this repository will be documented in this file.
 
 
+## [R.1.10.8] - 2026-05-28
+
+### Changed
+- Hero eyebrow updated to `RELEASE R.1.10.8 · 1077 TESTS · 85 SUITES · ALL PASSING`.
+- Nav wordmark tag updated to `R.1.10.8`; footer build string updated to `BUILD R.1.10.8 · 1077/1077 · 85 SUITES`.
+- License page eyebrow updated to `§ LINDBLAD SOFTWARE LICENSE v2.3`; license overview blurb and FAQ snippet updated to `v2.3`.
+- GitHub forks notice updated to `SLA v2.3`.
+- CITATION code block license field updated to `Lindblad-SLA-2.3`.
+- Footer SLA tag updated to `Lindblad SLA v2.3`.
+- Contact addresses (CTA, contact page, FAQ, contact form mailto, footer link) migrated from `qpp.support@proton.me` to `lindblad.software@proton.me`.
+
 ## [R.1.4.1] - 2026-05-12
 
 ### Changed

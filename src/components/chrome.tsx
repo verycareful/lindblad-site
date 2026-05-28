@@ -39,7 +39,7 @@ export function Nav({ active = 'home' }: { active?: PageName }) {
         <a href="index.html" className="wordmark">
           <LindbladGlyph size={22} />
           <span>lindblad</span>
-          <span className="tag" style={{ marginLeft: 8 }}>R.1.10.7</span>
+          <span className="tag" style={{ marginLeft: 8 }}>R.1.10.8</span>
         </a>
         <div className="nav-links">
           <a href="index.html" className={"nav-link" + (active === 'home' ? ' active' : '')}>OVERVIEW</a>
@@ -89,15 +89,15 @@ export function Footer() {
             </div>
             <div className="flex-col gap-8">
               <div className="label">CONTACT</div>
-              <a className="text-dim mono" href="mailto:qpp.support@proton.me">qpp.support@proton.me</a>
+              <a className="text-dim mono" href="mailto:lindblad.software@proton.me">lindblad.software@proton.me</a>
               <span className="text-faint mono" style={{ fontSize: 12 }}>© 2026 Sricharan Suresh</span>
-              <span className="text-faint mono" style={{ fontSize: 12 }}>Lindblad SLA v2.2</span>
+              <span className="text-faint mono" style={{ fontSize: 12 }}>Lindblad SLA v2.3</span>
             </div>
           </div>
         </div>
         <hr className="rule mt-48" />
         <div className="flex justify-between mt-24" style={{ flexWrap: 'wrap', gap: 16 }}>
-          <span className="mono text-faint" style={{ fontSize: 12 }}>BUILD R.1.10.7 · 1077/1077 · 85 SUITES</span>
+          <span className="mono text-faint" style={{ fontSize: 12 }}>BUILD R.1.10.8 · 1077/1077 · 85 SUITES</span>
           <span className="mono text-faint" style={{ fontSize: 12 }}>C++23 · OpenMP · Eigen · NLopt</span>
         </div>
       </div>
