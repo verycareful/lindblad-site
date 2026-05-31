@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.11.0 · 1077 TESTS · 85 SUITES · ALL PASSING</span>
+          <span className="eyebrow">RELEASE R.1.11.1 · 1272 TESTS · 95 SUITES · 1269/1272 PASSING</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -61,7 +61,7 @@ function HomeHero() {
           <Stat label="QUBITS BENCHED" value={<Counter to={20} />} sub="MA-QAOA layerwise · 1380 params" />
           <Stat label="SIMULATOR BACKENDS" value={<Counter to={4} />} sub="Statevector · DM · Clifford · MPS" accent="var(--orange)" />
           <Stat label="ALGORITHMS" value={<Counter to={10} />} sub="VQE · QAOA · MA-QAOA · Grover · QPE · BV · DJ · Simon · QFT · Shor" accent="var(--blue)" />
-          <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="1077 unit tests · 85 test suites" />
+          <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="1272 unit tests · 95 test suites" />
         </div>
       </div>
     </section>
@@ -323,7 +323,7 @@ $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \\
    [214/214] Linking liblindblad_core.a
 
 $ ctest --test-dir build --output-on-failure
-   100% tests passed · 1077/1077 across 85 suites`
+   99% tests passed · 1269/1272 across 95 suites (3 MPS Simon d>2 — fix in R.1.11.2)`
               }} />
             </div>
           </div>
