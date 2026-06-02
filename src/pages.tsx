@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.11.1 · 1272 TESTS · 95 SUITES · 1269/1272 PASSING</span>
+          <span className="eyebrow">RELEASE R.1.11.2 · 1296 TESTS · 102 SUITES · ALL PASSING</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -61,7 +61,7 @@ function HomeHero() {
           <Stat label="QUBITS BENCHED" value={<Counter to={20} />} sub="MA-QAOA layerwise · 1380 params" />
           <Stat label="SIMULATOR BACKENDS" value={<Counter to={4} />} sub="Statevector · DM · Clifford · MPS" accent="var(--orange)" />
           <Stat label="ALGORITHMS" value={<Counter to={10} />} sub="VQE · QAOA · MA-QAOA · Grover · QPE · BV · DJ · Simon · QFT · Shor" accent="var(--blue)" />
-          <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="1272 unit tests · 95 test suites" />
+          <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="1296 unit tests · 102 test suites" />
         </div>
       </div>
     </section>
@@ -323,7 +323,7 @@ $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \\
    [214/214] Linking liblindblad_core.a
 
 $ ctest --test-dir build --output-on-failure
-   99% tests passed · 1269/1272 across 95 suites (3 MPS Simon d>2 — fix in R.1.11.2)`
+   100% tests passed · 1296/1296 across 102 suites`
               }} />
             </div>
           </div>
@@ -1183,7 +1183,7 @@ export function ContactPage() {
 const KEY_TERMS = [
   { n: '§1', title: 'Scope', body: 'Source-available. The software is provided in source form for review, study, and authorized use. The author retains all copyright.' },
   { n: '§2', title: 'Permitted use', body: 'Non-commercial and academic use is granted at no cost. "Non-commercial" means use that does not produce, sell, or support a commercial product or service. Internal modifications for personal or academic study are also permitted.' },
-  { n: '§3', title: 'Redistribution', body: 'Private sharing of unmodified copies with individual peers or collaborators for non-commercial purposes is permitted under the same license terms (§3.1). Public redistribution — forks, mirrors, package registries, derivative works — is prohibited without written authorization. GitHub forks are not licensed for any use beyond PR review.' },
+  { n: '§3', title: 'Redistribution', body: 'Private sharing with specific individual peers or collaborators for non-commercial purposes is permitted under the same license terms — both unmodified copies (§3.1) and modifications (§3.2). Public redistribution — forks, mirrors, package registries, public derivative works — is prohibited without written authorization. GitHub forks are not licensed for any use beyond PR review.' },
   { n: '§4', title: 'Commercial use', body: 'Any commercial use, including internal R&D supporting commercial products, requires a separate written license. Contact lindblad.software@proton.me to begin discussion.' },
   { n: '§5', title: 'Attribution & citations', body: 'Academic users must cite Lindblad in publications that use it. The CITATION.cff file in the repository contains the canonical citation entry.' },
   { n: '§6.3', title: 'Contributions', body: 'By submitting any contribution (PR, code snippet, bug fix), you irrevocably assign full copyright ownership of that contribution to the author.' },
@@ -1203,9 +1203,9 @@ function LicensePaths() {
               <li>✓ Use in research, teaching, dissertations</li>
               <li>✓ Use in academic publications with citation</li>
               <li>✓ Modifications for personal study</li>
-              <li>✓ Private peer sharing of unmodified copies permitted (§3.1)</li>
+              <li>✓ Private peer sharing of copies — modified or unmodified — for non-commercial use (§3.1–3.2)</li>
               <li>✗ No commercial deployment of any kind</li>
-              <li>✗ No derivative works without authorization</li>
+              <li>✗ No public redistribution: forks, mirrors, registries, public derivatives</li>
             </ul>
             <hr className="rule mt-32" />
             <div className="flex gap-12 mt-24">
@@ -1329,7 +1329,7 @@ export function LicensePage() {
             <span style={{ color: 'var(--orange)' }}>Two paths.</span>
           </h1>
           <p className="lead mt-32">
-            Free for non-commercial and academic use. Commercial use of any kind requires a separate written license agreement. Private non-commercial redistribution of unmodified copies is permitted under the same license terms. Public redistribution in any form is prohibited without explicit written authorization.
+            Free for non-commercial and academic use. Commercial use of any kind requires a separate written license agreement. Private non-commercial redistribution to specific individuals is permitted under the same license terms — both unmodified copies and modifications (§3.1–3.2). Public redistribution in any form is prohibited without explicit written authorization.
           </p>
         </div>
       </section>

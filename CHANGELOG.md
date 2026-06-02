@@ -3,6 +3,14 @@
 All notable changes to this repository will be documented in this file.
 
 
+## [R.1.11.2] - 2026-06-02
+
+### Changed
+- Hero eyebrow updated to `RELEASE R.1.11.2 · 1296 TESTS · 102 SUITES · ALL PASSING` (restored to all-passing after the R.1.11.1 partial-pass status).
+- Nav wordmark tag updated to `R.1.11.2`; footer build string updated to `BUILD R.1.11.2 · 1296/1296 · 102 SUITES`.
+- Quick-start ctest mockup updated to `100% tests passed · 1296/1296 across 102 suites` (dropped the R.1.11.1 MPS Simon failure note).
+- Licensing copy (PATH A list, §3 Redistribution card, licensing hero) clarified to cover LICENSE v2.3 §3.1 and §3.2: private sharing of copies, modified or unmodified, for non-commercial use; public redistribution remains prohibited.
+
 ## [R.1.10.8] - 2026-05-28
 
 ### Changed
