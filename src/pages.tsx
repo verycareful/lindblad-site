@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.12.0 · 1317 TESTS · 103 SUITES · 1314 PASSING · 3 CONVENTION TESTS PENDING R.1.12.1</span>
+          <span className="eyebrow">RELEASE R.1.12.1 · 1702 TESTS · 129 SUITES · 1693 PASSING · 9 BUG-PINNING TESTS PENDING R.1.12.2</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -61,7 +61,7 @@ function HomeHero() {
           <Stat label="QUBITS BENCHED" value={<Counter to={20} />} sub="MA-QAOA layerwise · 1380 params" />
           <Stat label="SIMULATOR BACKENDS" value={<Counter to={4} />} sub="Statevector · DM · Clifford · MPS" accent="var(--orange)" />
           <Stat label="ALGORITHMS" value={<Counter to={10} />} sub="VQE · QAOA · MA-QAOA · Grover · QPE · BV · DJ · Simon · QFT · Shor" accent="var(--blue)" />
-          <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="1317 unit tests · 103 test suites" />
+          <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="1702 unit tests · 129 test suites" />
         </div>
       </div>
     </section>
@@ -323,8 +323,8 @@ $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \\
    [214/214] Linking liblindblad_core.a
 
 $ ctest --test-dir build --output-on-failure
-   1314/1317 tests passed across 103 suites
-   (3 convention-pinned tests await the R.1.12.1 suite)`
+   1693/1702 tests passed across 129 suites
+   (9 tests pin known bugs, fixed in R.1.12.2)`
               }} />
             </div>
           </div>
