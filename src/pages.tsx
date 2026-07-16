@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.16.0 · 1890/1890 TESTS PASSING · 152 SUITES</span>
+          <span className="eyebrow">RELEASE R.1.16.1 · 1903/1903 TESTS PASSING · 155 SUITES</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -61,7 +61,7 @@ function HomeHero() {
           <Stat label="QUBITS BENCHED" value={<Counter to={20} />} sub="MA-QAOA layerwise · 1380 params" />
           <Stat label="SIMULATOR BACKENDS" value={<Counter to={4} />} sub="Statevector · DM · Clifford · MPS" accent="var(--orange)" />
           <Stat label="ALGORITHMS" value={<Counter to={10} />} sub="VQE · QAOA · MA-QAOA · Grover · QPE · BV · DJ · Simon · QFT · Shor" accent="var(--blue)" />
-          <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="1890 unit tests · 152 test suites" />
+          <Stat label="LINES OF C++" value={<Counter to={42000} suffix="+" />} sub="1903 unit tests · 155 test suites" />
         </div>
       </div>
     </section>
@@ -287,14 +287,14 @@ function LaunchSection() {
 
     <span class="cm"># Or fetch from GitHub:</span>
     <span class="cm"># GIT_REPOSITORY git@github.com:verycareful/lindblad.git</span>
-    <span class="cm"># GIT_TAG        R.1.16.0</span>
+    <span class="cm"># GIT_TAG        R.1.16.1</span>
 )
 <span class="fn">FetchContent_MakeAvailable</span>(lindblad)
 
 <span class="fn">target_link_libraries</span>(my_app <span class="ty">PRIVATE</span> lindblad_core)`
             }} />
             <div className="flex justify-between items-center" style={{ padding: '10px 18px', borderTop: '1px solid var(--rule)', background: 'var(--surface-2)' }}>
-              <span className="mono text-faint" style={{ fontSize: 11 }}>LATEST RELEASE · R.1.16.0</span>
+              <span className="mono text-faint" style={{ fontSize: 11 }}>LATEST RELEASE · R.1.16.1</span>
               <a href="https://github.com/verycareful/lindblad/releases" target="_blank" rel="noopener" className="mono" style={{ fontSize: 11, color: 'var(--orange)' }}>↗ ALL RELEASES</a>
             </div>
           </div>
@@ -323,7 +323,7 @@ $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \\
    [214/214] Linking liblindblad_core.a
 
 $ ctest --test-dir build --output-on-failure
-   1890/1890 tests passed across 152 suites`
+   1903/1903 tests passed across 155 suites`
               }} />
             </div>
           </div>
@@ -331,7 +331,7 @@ $ ctest --test-dir build --output-on-failure
 
         <div className="flex gap-12 mt-16" style={{ flexWrap: 'wrap' }}>
           <a href="https://github.com/verycareful/lindblad" target="_blank" rel="noopener" className="btn btn-primary">↗ github.com/verycareful/lindblad</a>
-          <a href="https://github.com/verycareful/lindblad/releases/tag/R.1.16.0" target="_blank" rel="noopener" className="btn">↗ R.1.16.0 RELEASE NOTES</a>
+          <a href="https://github.com/verycareful/lindblad/releases/tag/R.1.16.1" target="_blank" rel="noopener" className="btn">↗ R.1.16.1 RELEASE NOTES</a>
         </div>
       </div>
     </section>
@@ -1241,7 +1241,7 @@ export function BenchmarksPage() {
 const FAQ_ITEMS = [
   { q: 'Can I evaluate LINDBLAD before committing to a commercial license?', a: 'It depends on your situation. If you are an individual researcher or academic, the non-commercial license covers evaluation at no cost. If you represent a for-profit organization, any use — including evaluation and benchmarking — constitutes Commercial Use under §1.5 of the SLA and requires a commercial license agreement. Contact us to discuss terms before running it in a company context.' },
   { q: 'Is academic access automatic?', a: 'Yes. The source is published on GitHub at github.com/verycareful/lindblad and is available via CMake FetchContent or release tarballs. Academic and non-commercial use is free under the SLA — no request required.' },
-  { q: 'Can I publish benchmarks comparing LINDBLAD to other simulators?', a: 'Yes, under the academic license. We ask that you cite the release version you benchmarked (e.g. R.1.16.0) and report hardware specs alongside any performance numbers.' },
+  { q: 'Can I publish benchmarks comparing LINDBLAD to other simulators?', a: 'Yes, under the academic license. We ask that you cite the release version you benchmarked (e.g. R.1.16.1) and report hardware specs alongside any performance numbers.' },
   { q: 'Do you accept community contributions?', a: 'Yes — contributions are welcome from both commercial and non-commercial users, and every PR will be considered. LINDBLAD is maintained by a single author, so reviews may not be quick unless the contribution fixes a major bug. Note that Contributors retain copyright but grant the author a perpetual irrevocable license to use and commercialize the contribution — see §6.3 of the SLA. Review before submitting.' },
   { q: 'Can I request new features?', a: 'Yes, requests are considered. Feature requests from commercial consumers are prioritized; community feature requests are evaluated as time permits.' },
 ] as const;
@@ -1524,7 +1524,7 @@ function CitationSection() {
 <span class="ty">authors</span>:
   - <span class="ty">family-names</span>: <span class="st">"Suresh"</span>
     <span class="ty">given-names</span>:  <span class="st">"Sricharan"</span>
-<span class="ty">version</span>:      <span class="st">"R.1.16.0"</span>
+<span class="ty">version</span>:      <span class="st">"R.1.16.1"</span>
 <span class="ty">date-released</span>: <span class="st">"2026-07-16"</span>
 <span class="ty">license</span>:      <span class="st">"Lindblad-SLA-2.3"</span>`
         }} />
