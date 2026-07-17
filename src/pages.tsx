@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.16.1 · 1903/1903 TESTS PASSING · 155 SUITES</span>
+          <span className="eyebrow">RELEASE R.1.17.0 · 1903/1903 TESTS PASSING · 155 SUITES</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -287,14 +287,14 @@ function LaunchSection() {
 
     <span class="cm"># Or fetch from GitHub:</span>
     <span class="cm"># GIT_REPOSITORY git@github.com:verycareful/lindblad.git</span>
-    <span class="cm"># GIT_TAG        R.1.16.1</span>
+    <span class="cm"># GIT_TAG        R.1.17.0</span>
 )
 <span class="fn">FetchContent_MakeAvailable</span>(lindblad)
 
 <span class="fn">target_link_libraries</span>(my_app <span class="ty">PRIVATE</span> lindblad_core)`
             }} />
             <div className="flex justify-between items-center" style={{ padding: '10px 18px', borderTop: '1px solid var(--rule)', background: 'var(--surface-2)' }}>
-              <span className="mono text-faint" style={{ fontSize: 11 }}>LATEST RELEASE · R.1.16.1</span>
+              <span className="mono text-faint" style={{ fontSize: 11 }}>LATEST RELEASE · R.1.17.0</span>
               <a href="https://github.com/verycareful/lindblad/releases" target="_blank" rel="noopener" className="mono" style={{ fontSize: 11, color: 'var(--orange)' }}>↗ ALL RELEASES</a>
             </div>
           </div>
@@ -331,7 +331,7 @@ $ ctest --test-dir build --output-on-failure
 
         <div className="flex gap-12 mt-16" style={{ flexWrap: 'wrap' }}>
           <a href="https://github.com/verycareful/lindblad" target="_blank" rel="noopener" className="btn btn-primary">↗ github.com/verycareful/lindblad</a>
-          <a href="https://github.com/verycareful/lindblad/releases/tag/R.1.16.1" target="_blank" rel="noopener" className="btn">↗ R.1.16.1 RELEASE NOTES</a>
+          <a href="https://github.com/verycareful/lindblad/releases/tag/R.1.17.0" target="_blank" rel="noopener" className="btn">↗ R.1.17.0 RELEASE NOTES</a>
         </div>
       </div>
     </section>
@@ -976,8 +976,8 @@ function BenchmarksPageFull() {
 // ---------------------------------------------------------------------------
 
 const BENCH_RUN = {
-  version: 'R.1.14.1',
-  date: '2026-07-12',
+  version: 'R.1.17.0',
+  date: '2026-07-17',
   machine: 'AMD Ryzen 9 7900X · 24 threads · WSL Ubuntu · Clang -O3 -march=native',
   qiskit: 'Python 3.12.3 · qiskit 2.5.0 · qiskit-aer 0.17.2 (out-of-box: Aer keeps gate fusion + its own threading)',
   parity: '7/7 PASS',
@@ -1001,55 +1001,55 @@ const BENCH_DOMAINS: { name: string; note: string; quality?: boolean; rows: Benc
     name: 'Statevector',
     note: 'Layered scaling circuit, QFT, QV-style random circuits, and a ccx-lowered Grover, 256 shots each, versus Aer method=statevector.',
     rows: [
-      { w: 'sv__grover__s8', lb: 1.998, aer: 10.661, x: 5.34 },
-      { w: 'sv__grover__s10', lb: 67.007, aer: 119.971, x: 1.79 },
-      { w: 'sv__grover__s12', lb: 1192.645, aer: 2154.919, x: 1.81 },
-      { w: 'sv__qft__n10', lb: 0.047, aer: 3.398, x: 71.91 },
-      { w: 'sv__qft__n14', lb: 0.312, aer: 10.624, x: 34.02 },
-      { w: 'sv__qft__n18', lb: 8.144, aer: 13.933, x: 1.71 },
-      { w: 'sv__qft__n22', lb: 513.524, aer: 130.912, x: 0.25 },
-      { w: 'sv__qv__n10', lb: 0.327, aer: 5.026, x: 15.35 },
-      { w: 'sv__qv__n14', lb: 5.32, aer: 23.692, x: 4.45 },
-      { w: 'sv__qv__n18', lb: 126.644, aer: 37.86, x: 0.3 },
-      { w: 'sv__qv__n22', lb: 2184.907, aer: 490.335, x: 0.22 },
-      { w: 'sv__scaling__n10', lb: 0.069, aer: 2.858, x: 41.49 },
-      { w: 'sv__scaling__n14', lb: 0.605, aer: 9.643, x: 15.93 },
-      { w: 'sv__scaling__n18', lb: 12.207, aer: 20.745, x: 1.7 },
-      { w: 'sv__scaling__n22', lb: 275.278, aer: 145.374, x: 0.53 },
-      { w: 'sv__scaling__n26', lb: 10085.514, aer: 2632.363, x: 0.26 },
+      { w: 'sv__grover__s8', lb: 1.92, aer: 8.893, x: 4.63 },
+      { w: 'sv__grover__s10', lb: 66.202, aer: 73.557, x: 1.11 },
+      { w: 'sv__grover__s12', lb: 1136.473, aer: 1895.068, x: 1.67 },
+      { w: 'sv__qft__n10', lb: 0.046, aer: 3.314, x: 71.77 },
+      { w: 'sv__qft__n14', lb: 0.305, aer: 8.889, x: 29.17 },
+      { w: 'sv__qft__n18', lb: 7.947, aer: 12.764, x: 1.61 },
+      { w: 'sv__qft__n22', lb: 344.913, aer: 128.113, x: 0.37 },
+      { w: 'sv__qv__n10', lb: 0.321, aer: 4.865, x: 15.15 },
+      { w: 'sv__qv__n14', lb: 5.079, aer: 21.293, x: 4.19 },
+      { w: 'sv__qv__n18', lb: 122.111, aer: 34.144, x: 0.28 },
+      { w: 'sv__qv__n22', lb: 514.905, aer: 411.607, x: 0.8 },
+      { w: 'sv__scaling__n10', lb: 0.068, aer: 2.703, x: 39.88 },
+      { w: 'sv__scaling__n14', lb: 0.626, aer: 9.151, x: 14.62 },
+      { w: 'sv__scaling__n18', lb: 11.511, aer: 18.505, x: 1.61 },
+      { w: 'sv__scaling__n22', lb: 246.161, aer: 150.1, x: 0.61 },
+      { w: 'sv__scaling__n26', lb: 6312.427, aer: 2431.845, x: 0.39 },
     ],
   },
   {
     name: 'Density Matrix with Noise',
     note: 'Twin noise model on both engines: 2-qubit depolarizing p=0.01 after every cx, amplitude damping γ=0.005 after every h, versus Aer method=density_matrix.',
     rows: [
-      { w: 'dm__scaling__n4', lb: 0.273, aer: 1.907, x: 6.97 },
-      { w: 'dm__scaling__n6', lb: 3.908, aer: 3.817, x: 0.98 },
-      { w: 'dm__scaling__n8', lb: 161.731, aer: 7.704, x: 0.05 },
-      { w: 'dm__scaling__n10', lb: 960.61, aer: 32.846, x: 0.03 },
+      { w: 'dm__scaling__n4', lb: 0.083, aer: 1.506, x: 18.23 },
+      { w: 'dm__scaling__n6', lb: 1.146, aer: 3.403, x: 2.97 },
+      { w: 'dm__scaling__n8', lb: 169.504, aer: 4.118, x: 0.02 },
+      { w: 'dm__scaling__n10', lb: 59.273, aer: 28.393, x: 0.48 },
     ],
   },
   {
     name: 'Matrix Product State',
     note: 'Layered scaling circuit; χ is the bond-dimension cap on both engines. Lindblad uses Jacobi SVD (accuracy-first default since R.1.13).',
     rows: [
-      { w: 'mps__scaling__n16__chi32', lb: 1.177, aer: 11.748, x: 9.98 },
-      { w: 'mps__scaling__n24__chi8', lb: 0.793, aer: 16.97, x: 21.4 },
-      { w: 'mps__scaling__n24__chi16', lb: 0.746, aer: 17.239, x: 23.09 },
-      { w: 'mps__scaling__n24__chi32', lb: 0.83, aer: 17.076, x: 20.58 },
-      { w: 'mps__scaling__n24__chi64', lb: 0.77, aer: 17.03, x: 22.11 },
-      { w: 'mps__scaling__n32__chi32', lb: 1.017, aer: 23.127, x: 22.75 },
-      { w: 'mps__scaling__n40__chi32', lb: 1.335, aer: 28.475, x: 21.33 },
+      { w: 'mps__scaling__n16__chi32', lb: 1.114, aer: 11.612, x: 10.43 },
+      { w: 'mps__scaling__n24__chi8', lb: 1.091, aer: 16.815, x: 15.42 },
+      { w: 'mps__scaling__n24__chi16', lb: 1.092, aer: 16.873, x: 15.46 },
+      { w: 'mps__scaling__n24__chi32', lb: 1.094, aer: 16.853, x: 15.41 },
+      { w: 'mps__scaling__n24__chi64', lb: 1.092, aer: 16.88, x: 15.45 },
+      { w: 'mps__scaling__n32__chi32', lb: 1.464, aer: 22.239, x: 15.19 },
+      { w: 'mps__scaling__n40__chi32', lb: 1.847, aer: 27.508, x: 14.89 },
     ],
   },
   {
     name: 'Clifford / Stabilizer',
     note: 'H/CX/S ladder circuits versus Aer method=stabilizer; sizes beyond statevector reach.',
     rows: [
-      { w: 'clifford__ladder__n20', lb: 1.162, aer: 6.329, x: 5.45 },
-      { w: 'clifford__ladder__n40', lb: 5.795, aer: 18.573, x: 3.21 },
-      { w: 'clifford__ladder__n80', lb: 32.613, aer: 33.096, x: 1.01 },
-      { w: 'clifford__ladder__n160', lb: 211.419, aer: 95.782, x: 0.45 },
+      { w: 'clifford__ladder__n20', lb: 1.121, aer: 9.056, x: 8.08 },
+      { w: 'clifford__ladder__n40', lb: 5.723, aer: 18.044, x: 3.15 },
+      { w: 'clifford__ladder__n80', lb: 32.421, aer: 32.071, x: 0.99 },
+      { w: 'clifford__ladder__n160', lb: 204.797, aer: 91.861, x: 0.45 },
     ],
   },
   {
@@ -1057,30 +1057,30 @@ const BENCH_DOMAINS: { name: string; note: string; quality?: boolean; rows: Benc
     note: 'Full pipeline on both engines: layout, routing, optimization, and {cx, u3} basis translation on identical coupling graphs. Circuits are SMALLER than their maps (n=22 on 25/27-slot devices), exercising the R.1.15.0 layout-expansion path end-to-end. twoq/depth are output-quality metrics: lower is better at equal legality.',
     quality: true,
     rows: [
-      { w: 'trans__qft22__grid25__o2', lb: 4.619, aer: 20.469, x: 4.43, lbq: '1257 / 683', aerq: '708 / 352' },
-      { w: 'trans__qft22__grid25__o3', lb: 7.432, aer: 21.597, x: 2.91, lbq: '1257 / 683', aerq: '750 / 394' },
-      { w: 'trans__qft22__heavyhex27__o2', lb: 5.613, aer: 21.165, x: 3.77, lbq: '1704 / 781', aerq: '742 / 335' },
-      { w: 'trans__qft22__heavyhex27__o3', lb: 9.207, aer: 34.886, x: 3.79, lbq: '1704 / 781', aerq: '791 / 375' },
-      { w: 'trans__qft22__linear27__o2', lb: 6.029, aer: 20.371, x: 3.38, lbq: '2091 / 644', aerq: '729 / 319' },
-      { w: 'trans__qft22__linear27__o3', lb: 9.611, aer: 22.979, x: 2.39, lbq: '2091 / 644', aerq: '729 / 319' },
-      { w: 'trans__qv22__grid25__o2', lb: 15.578, aer: 27.692, x: 1.78, lbq: '1888 / 710', aerq: '1175 / 516' },
-      { w: 'trans__qv22__grid25__o3', lb: 22.169, aer: 30.441, x: 1.37, lbq: '1888 / 710', aerq: '1169 / 517' },
-      { w: 'trans__qv22__heavyhex27__o2', lb: 17.817, aer: 29.087, x: 1.63, lbq: '2653 / 933', aerq: '1682 / 621' },
-      { w: 'trans__qv22__heavyhex27__o3', lb: 25.656, aer: 32.248, x: 1.26, lbq: '2653 / 933', aerq: '1661 / 586' },
-      { w: 'trans__qv22__linear27__o2', lb: 22.617, aer: 45.345, x: 2.0, lbq: '4291 / 1192', aerq: '2926 / 738' },
-      { w: 'trans__qv22__linear27__o3', lb: 33.151, aer: 44.021, x: 1.33, lbq: '4291 / 1192', aerq: '2926 / 797' },
+      { w: 'trans__qft22__grid25__o2', lb: 4.682, aer: 19.587, x: 4.18, lbq: '1257 / 683', aerq: '708 / 352' },
+      { w: 'trans__qft22__grid25__o3', lb: 7.26, aer: 20.833, x: 2.87, lbq: '1257 / 683', aerq: '750 / 394' },
+      { w: 'trans__qft22__heavyhex27__o2', lb: 5.643, aer: 20.697, x: 3.67, lbq: '1704 / 781', aerq: '742 / 335' },
+      { w: 'trans__qft22__heavyhex27__o3', lb: 8.887, aer: 33.445, x: 3.76, lbq: '1704 / 781', aerq: '791 / 375' },
+      { w: 'trans__qft22__linear27__o2', lb: 5.747, aer: 18.768, x: 3.27, lbq: '2091 / 644', aerq: '729 / 319' },
+      { w: 'trans__qft22__linear27__o3', lb: 9.622, aer: 20.666, x: 2.15, lbq: '2091 / 644', aerq: '729 / 319' },
+      { w: 'trans__qv22__grid25__o2', lb: 13.392, aer: 26.645, x: 1.99, lbq: '1888 / 710', aerq: '1175 / 516' },
+      { w: 'trans__qv22__grid25__o3', lb: 20.074, aer: 29.397, x: 1.46, lbq: '1888 / 710', aerq: '1169 / 517' },
+      { w: 'trans__qv22__heavyhex27__o2', lb: 15.531, aer: 28.791, x: 1.85, lbq: '2653 / 933', aerq: '1682 / 621' },
+      { w: 'trans__qv22__heavyhex27__o3', lb: 23.529, aer: 30.417, x: 1.29, lbq: '2653 / 933', aerq: '1661 / 586' },
+      { w: 'trans__qv22__linear27__o2', lb: 21.89, aer: 44.769, x: 2.05, lbq: '4291 / 1192', aerq: '2926 / 738' },
+      { w: 'trans__qv22__linear27__o3', lb: 32.201, aer: 43.248, x: 1.34, lbq: '4291 / 1192', aerq: '2926 / 797' },
     ],
   },
   {
     name: 'Estimator',
     note: 'Heisenberg-chain observable on a measure-free ansatz. exact = Lindblad Estimator at shots=0 versus Qiskit dense-statevector expectation; shots4096 = sampled Estimator versus Aer EstimatorV2 at matched precision.',
     rows: [
-      { w: 'est__heisenberg__n12__exact', lb: 0.48, aer: 3.182, x: 6.63 },
-      { w: 'est__heisenberg__n12__shots4096', lb: 2.208, aer: 6.813, x: 3.08 },
-      { w: 'est__heisenberg__n16__exact', lb: 8.987, aer: 25.777, x: 2.87 },
-      { w: 'est__heisenberg__n16__shots4096', lb: 12.69, aer: 16.384, x: 1.29 },
-      { w: 'est__heisenberg__n20__exact', lb: 44.266, aer: 1668.425, x: 37.69 },
-      { w: 'est__heisenberg__n20__shots4096', lb: 156.687, aer: 121.871, x: 0.78 },
+      { w: 'est__heisenberg__n12__exact', lb: 0.469, aer: 3.094, x: 6.6 },
+      { w: 'est__heisenberg__n12__shots4096', lb: 2.18, aer: 6.768, x: 3.1 },
+      { w: 'est__heisenberg__n16__exact', lb: 8.903, aer: 25.089, x: 2.82 },
+      { w: 'est__heisenberg__n16__shots4096', lb: 12.26, aer: 40.591, x: 3.31 },
+      { w: 'est__heisenberg__n20__exact', lb: 45.972, aer: 1217.28, x: 26.48 },
+      { w: 'est__heisenberg__n20__shots4096', lb: 168.137, aer: 66.209, x: 0.39 },
     ],
   },
 ];
@@ -1210,19 +1210,20 @@ export function BenchmarksPage() {
             <div className="card">
               <div className="label" style={{ color: 'var(--green)' }}>LINDBLAD WINS</div>
               <ul className="text-dim mt-16" style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12, fontSize: 14 }}>
-                <li>→ MPS across the board: 10–23x at every size and bond dimension tested.</li>
-                <li>→ Small and mid statevector circuits: 4–72x up to n≈14–18.</li>
-                <li>→ Exact expectation values: up to 38x at n=20 (shots=0 path).</li>
-                <li>→ Grover end-to-end at every tested size (1.8–5.3x).</li>
-                <li>→ Transpile wall time: 1.26–4.43x faster on every workload, full pipeline.</li>
+                <li>→ MPS across the board: 10–15x at every size and bond dimension tested.</li>
+                <li>→ Small and mid statevector circuits: 4–72x up to n≈14; QFT and layered scaling still ahead at n=18.</li>
+                <li>→ Noisy density matrix at small n: 3–18x at n=4–6 on the R.1.17 superoperator channel path.</li>
+                <li>→ Exact expectation values: up to 26x at n=20 (shots=0 path); sampled Estimator 3.1–3.3x at n=12–16.</li>
+                <li>→ Grover end-to-end at every tested size (1.1–4.6x).</li>
+                <li>→ Transpile wall time: 1.29–4.18x faster on every workload, full pipeline.</li>
               </ul>
             </div>
             <div className="card">
               <div className="label" style={{ color: 'var(--orange)' }}>AER WINS · TRACKED ON THE ROADMAP</div>
               <ul className="text-dim mt-16" style={{ listStyle: 'none', display: 'flex', flexDirection: 'column', gap: 12, fontSize: 14 }}>
-                <li>→ Large dense statevector (n ≥ 18–22): gate fusion pays off; fusion is the top roadmap perf item.</li>
-                <li>→ Density matrix with noise at n ≥ 8: per-shot evolution vs Aer's evolve-once-and-sample.</li>
-                <li>→ Clifford ladders at n = 160 (n = 80 is now even at 1.01x): bit-packed tableau candidate.</li>
+                <li>→ Largest dense statevector (n ≥ 22): still Aer's, but R.1.17 gate fusion narrowed it sharply (qv n=22 from 0.22x to 0.80x, n=26 from 0.26x to 0.39x); per-block cost-model fusion is the follow-up.</li>
+                <li>→ Density matrix with noise at n = 8–10: R.1.17 superoperator channels cut n=10 from 961 ms to 59 ms (0.03x → 0.48x); the n=8 row shows a known timing-variance pathology under diagnosis.</li>
+                <li>→ Clifford ladders at n = 160 (n = 80 is even at 0.99x): bit-packed tableau candidate.</li>
                 <li>→ Routed-circuit quality: Aer emits 30–65% fewer 2q gates at equal legality on smaller-than-map circuits.</li>
               </ul>
             </div>
@@ -1241,7 +1242,7 @@ export function BenchmarksPage() {
 const FAQ_ITEMS = [
   { q: 'Can I evaluate LINDBLAD before committing to a commercial license?', a: 'It depends on your situation. If you are an individual researcher or academic, the non-commercial license covers evaluation at no cost. If you represent a for-profit organization, any use — including evaluation and benchmarking — constitutes Commercial Use under §1.5 of the SLA and requires a commercial license agreement. Contact us to discuss terms before running it in a company context.' },
   { q: 'Is academic access automatic?', a: 'Yes. The source is published on GitHub at github.com/verycareful/lindblad and is available via CMake FetchContent or release tarballs. Academic and non-commercial use is free under the SLA — no request required.' },
-  { q: 'Can I publish benchmarks comparing LINDBLAD to other simulators?', a: 'Yes, under the academic license. We ask that you cite the release version you benchmarked (e.g. R.1.16.1) and report hardware specs alongside any performance numbers.' },
+  { q: 'Can I publish benchmarks comparing LINDBLAD to other simulators?', a: 'Yes, under the academic license. We ask that you cite the release version you benchmarked (e.g. R.1.17.0) and report hardware specs alongside any performance numbers.' },
   { q: 'Do you accept community contributions?', a: 'Yes — contributions are welcome from both commercial and non-commercial users, and every PR will be considered. LINDBLAD is maintained by a single author, so reviews may not be quick unless the contribution fixes a major bug. Note that Contributors retain copyright but grant the author a perpetual irrevocable license to use and commercialize the contribution — see §6.3 of the SLA. Review before submitting.' },
   { q: 'Can I request new features?', a: 'Yes, requests are considered. Feature requests from commercial consumers are prioritized; community feature requests are evaluated as time permits.' },
 ] as const;
@@ -1524,8 +1525,8 @@ function CitationSection() {
 <span class="ty">authors</span>:
   - <span class="ty">family-names</span>: <span class="st">"Suresh"</span>
     <span class="ty">given-names</span>:  <span class="st">"Sricharan"</span>
-<span class="ty">version</span>:      <span class="st">"R.1.16.1"</span>
-<span class="ty">date-released</span>: <span class="st">"2026-07-16"</span>
+<span class="ty">version</span>:      <span class="st">"R.1.17.0"</span>
+<span class="ty">date-released</span>: <span class="st">"2026-07-17"</span>
 <span class="ty">license</span>:      <span class="st">"Lindblad-SLA-2.3"</span>`
         }} />
       </div>
