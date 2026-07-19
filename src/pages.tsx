@@ -20,7 +20,7 @@ function HomeHero() {
       <div className="container">
         <div className="flex gap-12 items-center">
           <span className="dot-pulse" />
-          <span className="eyebrow">RELEASE R.1.19.0 · 1984/1984 TESTS PASSING · 161 SUITES</span>
+          <span className="eyebrow">RELEASE R.1.19.0 · 1983/1984 TESTS PASSING · 161 SUITES</span>
         </div>
         <h1 className="h-display mt-24">
           Quantum
@@ -323,7 +323,7 @@ $ cmake -S . -B build -DCMAKE_BUILD_TYPE=Release \\
    [214/214] Linking liblindblad_core.a
 
 $ ctest --test-dir build --output-on-failure
-   1984/1984 tests passed across 161 suites`
+   1983/1984 tests passed across 161 suites`
               }} />
             </div>
           </div>
