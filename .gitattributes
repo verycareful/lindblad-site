@@ -1,0 +1,19 @@
+# Line-ending policy: LF everywhere, in the repository and in the working tree,
+# on every platform. Without this file each contributor's core.autocrlf decides,
+# and a Windows checkout rewrites every text file to CRLF on disk, which git
+# then reports as a modification of every tracked file on any machine where
+# that setting differs. All tracked files are already LF, so this changes no
+# content; it only stops the working tree from drifting.
+
+* text=auto eol=lf
+
+# No binary files are tracked today. These rules exist so the first one added
+# (a favicon, a screenshot) is not corrupted by the text handling above.
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.ico  binary
+*.svg  text eol=lf
+*.woff binary
+*.woff2 binary
